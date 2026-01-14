@@ -41,6 +41,7 @@ llm-evaluation-framework/
 ├── 📄 README.md                    # This file
 ├── 📄 requirements.txt             # Python dependencies
 ├── 📄 setup.py                     # Installation script
+├── 📄 LICENSE.txt                  # MIT License
 │
 ├── 📂 data/                       # Test data
 │   ├── test_questions.tsv         # Sample questions with categories
@@ -72,7 +73,7 @@ llm-evaluation-framework/
     ├──  example_usage.ipynb             # Jupyter notebook with examples
     ├──  evaluate_documentation.ipynb    # evaluate.py documentation
     ├──  improvements.ipynb              # pending improvements
-    └── analyzer_documentation.ipynb     # analyze.py documentation
+    └──  analyzer_documentation.ipynb     # analyze.py documentation
 ```
 
 ## Quick Start
@@ -360,8 +361,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENCE.txt) 
 
 ## Roadmap
 
-- [ ] Real-time evaluation API
-- [ ] More LLM model integrations
-- [ ] Advanced bias detection algorithms
-- [ ] Cloud deployment templates
+- [ ] Implement real-time evaluation API functionality
+- [ ] Implement LLM model integration
+- [ ] Refine mathematical models and evaluation algoithms for additional precision
+- [ ] Implement cloud deployment templates
 

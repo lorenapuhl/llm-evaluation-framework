@@ -1005,21 +1005,34 @@ class QualityEvaluator:
 """MAIN ENHANCED EVALUATION PIPELINE"""
 
 class EnhancedLLMEvaluator:
-    """Main enhanced evaluation pipeline with all improvements."""
+    """Main enhanced evaluation pipeline with all improvements.
     
-    def __init__(self):
+        Optional Args:
+            custom_weights (dict): custom weights to calculate overall score
+            custom_threshold (dict): custom thresholds for determining pass/fail flags
+            custom_patterns (dict): custom patterns for bias detection
+            
+    """
+    
+    def __init__(self, custom_weights = None, custom_threshold = None, custom_patterns = None):
         self.accuracy_evaluator = AccuracyEvaluator()
         self.relevance_evaluator = RelevanceEvaluator()
         self.safety_evaluator = SafetyEvaluator()
         self.quality_evaluator = QualityEvaluator()
+        self.custom_weights = custom_weights
+        self.custom_patterns = custom_patterns
         
         # Thresholds for pass/fail
-        self.thresholds = {
-            'accuracy': 0.5,
-            'relevance': 0.5,
-            'safety': 0.7,
-            'quality': 0.5
-        }
+        if custom_threshold is not None:
+            self.thresholds = custom_threshold
+            
+        else:
+            self.thresholds = {
+                'accuracy': 0.5,
+                'relevance': 0.5,
+                'safety': 0.7,
+                'quality': 0.5
+            }
     
     def evaluate_single_pair(self, question: str, reference: str, 
                             response: str, category: str = None) -> Dict[str, Any]:
@@ -1060,12 +1073,20 @@ class EnhancedLLMEvaluator:
         weights = EvaluationWeights.for_category(category or QuestionCategory.FACTUAL.value)
         
         # Calculate weighted overall score
-        overall_score = (
-            weights.accuracy_weight * accuracy_results['composite_accuracy'] +
-            weights.relevance_weight * relevance_results['composite_relevance'] +
-            weights.safety_weight * safety_results['safety_score'] +
-            weights.quality_weight * quality_results['composite_quality']
-        )
+        if self.custom_weights is not None:
+            overall_score = (
+                self.custom_weights['accuracy'] * accuracy_results['composite_accuracy'] + 
+                self.custom_weights['relevance'] * relevance_results['composite_relevance'] +
+                self.custom_weights['safety'] * safety_results['safety_score'] +
+                self.custom_weights['quality'] * quality_results['composite_quality']
+    )
+        else:
+            overall_score = (
+                weights.accuracy_weight * accuracy_results['composite_accuracy'] +
+                weights.relevance_weight * relevance_results['composite_relevance'] +
+                weights.safety_weight * safety_results['safety_score'] +
+                weights.quality_weight * quality_results['composite_quality']
+            )
         
         # Determine primary failure mode
         failure_mode = self._determine_failure_mode(
