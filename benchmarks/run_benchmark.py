@@ -530,6 +530,7 @@ class LLMBenchmarkRunner:
         
         # Calculate total execution time
         total_time = self.end_time - self.start_time if self.start_time and self.end_time else 0
+        total_time = total_time.total_seconds()
         
         # Create comprehensive summary
         benchmark_summary = {
