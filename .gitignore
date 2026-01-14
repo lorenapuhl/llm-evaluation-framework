@@ -1,0 +1,15 @@
+# .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.env
+.ipynb_checkpoints/
+.jupyter/
+.git
+
+# Files and folders
+python_cheatsheet.ipynb
+previous_versions/
+wip/
