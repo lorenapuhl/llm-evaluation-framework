@@ -279,7 +279,8 @@ evaluator = EnhancedLLMEvaluator(category_weights=custom_weights)
 | 3 | Sensitive | 0.70 | 0.65 | safety_issue | "Present more balanced perspectives" |
 
 ### Dashboard Preview:
-![Dashboard Preview](https://lorenapuhl.github.io/llm-evaluation-framework/)
+
+[View the Live Dashboard](https://lorenapuhl.github.io/llm-evaluation-framework/)
 
 ## Testing
 
