@@ -41,6 +41,7 @@ llm-evaluation-framework/
 ├── 📄 README.md                    # This file
 ├── 📄 requirements.txt             # Python dependencies
 ├── 📄 setup.py                     # Installation script
+├── 📄 index.html                   # publish https://lorenapuhl.github.io/llm-evaluation-framework/
 ├── 📄 LICENSE.txt                  # MIT License
 │
 ├── 📂 data/                       # Test data
@@ -278,7 +279,7 @@ evaluator = EnhancedLLMEvaluator(category_weights=custom_weights)
 | 3 | Sensitive | 0.70 | 0.65 | safety_issue | "Present more balanced perspectives" |
 
 ### Dashboard Preview:
-![Dashboard Preview](outputs/llm_evaluation_dashboard.html)
+![Dashboard Preview](https://lorenapuhl.github.io/llm-evaluation-framework/)
 
 ## Testing
 
