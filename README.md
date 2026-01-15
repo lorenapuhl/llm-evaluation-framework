@@ -30,8 +30,8 @@ A Python framework for evaluating LLM outputs with automated scoring, intelligen
 
 ### **Production Ready**
 - **Parallel Processing**: Fast batch evaluation
-- **Graceful Degradation**: Works without heavy dependencies
-- **Configurable**: Adjustable thresholds and weights
+- **Graceful Degradation**: Works with fallback methods when heavier dependencies cannot be imported
+- **Configurable**: Adjustable thresholds, weights and bias-patterns
 - **Modular Architecture**: Easy to extend with new metrics
 - **Comprehensive Testing**: Full test suite with sample data
 
