@@ -350,8 +350,9 @@ result = evaluator.evaluate_single_pair(
     category=category
 )
 ```
+(View more detailed explanations in [example_usage.ipynb](documentation/example_usage.ipynb)
 
-### Development Setup
+## Development Setup
 
 ```bash
 # Clone and setup
