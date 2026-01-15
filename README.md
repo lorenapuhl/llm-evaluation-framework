@@ -20,7 +20,7 @@ A Python framework for evaluating LLM outputs with automated scoring, intelligen
 - **Performance Insights**: Category-wise and metric-wise analysis
 
 ### **Interactive Visualization**
-- **Dashboard**: 9-panel interactive dashboard (HTML)
+- **Dashboard**: 9-panel interactive dashboard (HTML) hosted on GitHub Pages [View the Live Dashboard](https://lorenapuhl.github.io/llm-evaluation-framework/)
 - **Score Distributions**: Histograms, box plots, density plots
 - **Failure Breakdowns**: Pie charts, heatmaps, bar charts
 - **Correlation Analysis**: Heatmaps and scatter plots
