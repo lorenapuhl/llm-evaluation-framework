@@ -12,6 +12,7 @@ A Python framework for evaluating LLM outputs with automated scoring, intelligen
 - **Safety Detection**: Bias, stereotypes, misinformation patterns
 - **Quality Assessment**: Fluency, coherence, conciseness, readability
 - **Category-Aware**: Different weights for factual, creative, sensitive questions
+- (View detailed metrics descriptions with their respective equations at [evaluate_documentation.ipynb](documentation/evaluate_documentation.ipynb)
 
 ### **Intelligent Failure Analysis**
 - **Root Cause Diagnosis**: Automatic failure categorization
