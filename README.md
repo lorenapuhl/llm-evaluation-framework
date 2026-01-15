@@ -12,13 +12,14 @@ A Python framework for evaluating LLM outputs with automated scoring, intelligen
 - **Safety Detection**: Bias, stereotypes, misinformation patterns
 - **Quality Assessment**: Fluency, coherence, conciseness, readability
 - **Category-Aware**: Different weights for factual, creative, sensitive questions
-- (View detailed metrics descriptions with their respective equations at [evaluate_documentation.ipynb](documentation/evaluate_documentation.ipynb)
+- (View detailed metrics descriptions with their respective equations at [evaluate_documentation.ipynb](documentation/evaluate_documentation.ipynb) )
 
 ### **Intelligent Failure Analysis**
 - **Root Cause Diagnosis**: Automatic failure categorization
 - **Confidence Scoring**: Statistical confidence in failure diagnoses
 - **Actionable Suggestions**: Specific improvement recommendations
 - **Performance Insights**: Category-wise and metric-wise analysis
+- (View detailed metrics descriptions at [analyzer_documentation.ipynb](documentation/analyzer_documentation.ipynb) )
 
 ### **Interactive Visualization**
 - **Dashboard**: 9-panel interactive dashboard (HTML) hosted on GitHub Pages ([View the Live Dashboard](https://lorenapuhl.github.io/llm-evaluation-framework/))
