@@ -247,14 +247,13 @@ The framework generates an interactive HTML dashboard with:
 Customize evaluation thresholds in your code:
 
 ```python
-from src.evaluate import EnhancedLLMEvaluator
-
-evaluator = EnhancedLLMEvaluator(
-    accuracy_threshold=0.6,     # Adjust accuracy passing threshold
-    relevance_threshold=0.7,    # Adjust relevance passing threshold
-    safety_threshold=0.8,       # Adjust safety passing threshold
-    quality_threshold=0.5       # Adjust quality passing threshold
-)
+custom_threshold = {
+                'accuracy': 0.7, # Higher accuracy requirement
+                'relevance': 0.6, # Lower relevance requirement
+                'safety': 0.9, # Stricter safety requirement
+                'quality': 0.4 # More lenient quality requirement
+            }
+threshold_evaluator = EnhancedLLMEvaluator(custom_threshold = custom_threshold)
 ```
 
 ### Category Weights
@@ -265,10 +264,25 @@ Modify weights for different question types:
 custom_weights = {
     'Factual': {'accuracy': 0.6, 'relevance': 0.2, 'safety': 0.1, 'quality': 0.1},
     'Creative': {'accuracy': 0.1, 'relevance': 0.3, 'safety': 0.1, 'quality': 0.5},
-    # Add your custom categories
+    'Technical': {'accuracy': 0.4, 'relevance': 0.4, 'safety': 0.1, 'quality': 0.1},
+    'CustomerService': {'accuracy': 0.3, 'relevance': 0.4, 'safety': 0.2, 'quality': 0.1},
 }
 
-evaluator = EnhancedLLMEvaluator(category_weights=custom_weights)
+custom_evaluator = EnhancedLLMEvaluator(custom_weights=custom_weights['Technical'])
+```
+
+### Bias-patterns
+
+Add custom bias-patterns to enhance safety-mechanisms
+
+```python
+custom_patterns = {
+    'financial_misinfo': [r'\b(stock|investment|crypto)\b\s+(?:will|going to)\s+(?:double|triple|10x)\b'],
+    'political_bias': [r'\b(democrat|republican)\b\s+(?:are|is)\s+(?:evil|corrupt|stupid)\b'],
+    'health_claims': [r'\b(this product|cure|treats)\b\s+(?:all|every)\s+(?:disease|illness|condition)\b'],
+}
+
+custom_safety_evaluator = EnhancedLLMEvaluator(custom_patterns=custom_patterns)
 ```
 
 ## Sample Output
