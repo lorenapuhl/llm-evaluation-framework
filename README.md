@@ -350,7 +350,7 @@ result = evaluator.evaluate_single_pair(
     category=category
 )
 ```
-(View more detailed explanations in [example_usage.ipynb](documentation/example_usage.ipynb)
+(View more detailed explanations at ([example_usage.ipynb](documentation/example_usage.ipynb))
 
 ## Development Setup
 
