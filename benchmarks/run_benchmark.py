@@ -26,12 +26,35 @@ import json
 # Add project root to path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+#print(os.path.dirname(os.path.abspath(__file__)))
+#print(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 
 try:
-    from src.evaluate import evaluate_all_pairs_enhanced, EnhancedLLMEvaluator
+    from src.evaluate import EnhancedLLMEvaluator
+except ImportError:
+    import warnings
+    warnings.warn("src.evaluate EnhancedLLMEvaluator not found")
+try:
+    import src.evaluate
+except ImportError:
+    import warnings
+    warnings.warn("src.evaluate not found")
+try:
+    from src.evalute import evaluate_all_pairs_enhanced
+except ImportError:
+    import warnings
+    warnings.warn("src.evaluate evaluate_all_pairs_enhanced not found")
+try:
     from src.analyze import analyze_failures_enhanced, EnhancedFailureAnalyzer
+except ImportError:
+    import warnings
+    warnings.warn("src.analyze not found")
+try:
     from src.visualization import LLMVisualizer, generate_all_visualizations
-    from src.utils import setup_directories, load_data, save_data
+except ImportError:
+    import warnings
+    warnings.warn("src.visualization not found")
+    #from src.utils import setup_directories, load_data, save_data
 except ImportError:
     # If utils doesn't exist, create minimal version
     import warnings
