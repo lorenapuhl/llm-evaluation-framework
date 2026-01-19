@@ -24,8 +24,11 @@ from typing import Dict, List, Tuple, Optional, Any
 import json
 
 # Add project root to path
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+#sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+#sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, project_root)
 
 try:
     from src.evaluate import evaluate_all_pairs_enhanced, EnhancedLLMEvaluator

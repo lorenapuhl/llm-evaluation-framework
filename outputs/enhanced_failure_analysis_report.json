@@ -155,9 +155,9 @@
       "common_causes": [
         "Evaluation identified: partial_accuracy",
         "Evaluation identified: factual_error",
+        "Good accuracy - main points covered",
         "Low accuracy - limited match with reference",
-        "Moderate accuracy - some key information present",
-        "Very low accuracy - little to no match with reference"
+        "Moderate accuracy - some key information present"
       ],
       "top_examples": [
         {
@@ -204,7 +204,7 @@
           "composite_quality": 0.8,
           "reasons": [
             "Evaluation identified: partial_accuracy",
-            "Moderate accuracy - some key information present"
+            "Good accuracy - main points covered"
           ],
           "suggested_fixes": [
             "Provide more specific and accurate information"

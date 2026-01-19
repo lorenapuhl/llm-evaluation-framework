@@ -8,9 +8,8 @@ from typing import List, Dict, Tuple, Any, Optional
 import pandas as pd
 from collections import Counter
 import json
-from dataclasses import dataclass
-from enum import Enum
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from src.config import QuestionCategory, AccuracyThresholds, EvaluationWeights
 
 # Import for semantic embeddings
 try:
@@ -56,44 +55,6 @@ def get_shared_wordnet():
         #else:
             #print("_wordet_instance is not None. Returning _wordnet_instance..")
     return _wordnet_instance
-
-class QuestionCategory(Enum):
-    """Categories for different question types."""
-    FACTUAL = "Factual"
-    EXPLANATORY = "Explanatory"
-    INSTRUCTIONAL = "Instruction"
-    CREATIVE = "Creative"
-    SENSITIVE = "Sensitive"
-
-@dataclass
-class EvaluationWeights:
-    """Configuration for weighting different metrics by category."""
-    accuracy_weight: float = 0.4
-    relevance_weight: float = 0.3
-    safety_weight: float = 0.2
-    quality_weight: float = 0.1
-    
-    @staticmethod
-    def for_category(category: str) -> 'EvaluationWeights':
-        """Get category-specific weights."""
-        weights_map = {
-            QuestionCategory.FACTUAL.value: EvaluationWeights(
-                accuracy_weight=0.5, relevance_weight=0.3, safety_weight=0.1, quality_weight=0.1
-            ),
-            QuestionCategory.EXPLANATORY.value: EvaluationWeights(
-                accuracy_weight=0.4, relevance_weight=0.4, safety_weight=0.1, quality_weight=0.1
-            ),
-            QuestionCategory.INSTRUCTIONAL.value: EvaluationWeights(
-                accuracy_weight=0.3, relevance_weight=0.5, safety_weight=0.1, quality_weight=0.1
-            ),
-            QuestionCategory.CREATIVE.value: EvaluationWeights(
-                accuracy_weight=0.2, relevance_weight=0.4, safety_weight=0.1, quality_weight=0.3
-            ),
-            QuestionCategory.SENSITIVE.value: EvaluationWeights(
-                accuracy_weight=0.3, relevance_weight=0.3, safety_weight=0.3, quality_weight=0.1
-            )
-        }
-        return weights_map.get(category, EvaluationWeights())
 
 class SemanticEmbeddingService:
     """Service for semantic similarity using pre-trained embeddings."""
@@ -162,7 +123,7 @@ class AccuracyEvaluator:
             
         
     
-    def evaluate(self, reference: str, response: str, question: str = None) -> Dict[str, Any]:
+    def evaluate(self, reference: str, response: str, category : str, question: str = None) -> Dict[str, Any]:
         """Calculate comprehensive accuracy metrics."""
         
         # Basic lexical metrics
@@ -207,7 +168,7 @@ class AccuracyEvaluator:
             'numeric_accuracy': round(numeric_accuracy, 4),
             'content_coverage': round(content_coverage, 4),
             'accuracy_feedback': self._generate_accuracy_feedback(
-                reference, response, composite_accuracy
+                reference, response, composite_accuracy, category
             )
         }
     
@@ -346,18 +307,26 @@ class AccuracyEvaluator:
         
         return covered / len(ref_words) if ref_words else 0.0
     
-    def _generate_accuracy_feedback(self, reference: str, response: str, score: float) -> str:
+    def _generate_accuracy_feedback(self, reference: str, response: str, score: float, category : str) -> str:
         """Generate human-readable accuracy feedback."""
-        if score >= 0.8:
-            return "High accuracy - response closely matches reference"
-        elif score >= 0.6:
-            return "Good accuracy - main points covered"
-        elif score >= 0.4:
-            return "Moderate accuracy - some key information present"
-        elif score >= 0.2:
-            return "Low accuracy - limited match with reference"
+        values = AccuracyThresholds.threshold(category) #yields AccuracyThreshold-object AccuracyThresholds(high= , good= , moderate= , low= ) with according values
+        
+        #create caution-string
+        if category in [QuestionCategory.CREATIVE.value, QuestionCategory.SENSITIVE.value]:
+            caution = f" (Caution: Accuracy measure not suitable for {category.lower()} questions)"
+        else: caution = ""
+        
+        #copare scores with threshold values
+        if score >= values.high:
+            return "High accuracy - response closely matches reference" + caution
+        if score >= values.good:
+            return "Good accuracy - main points covered" + caution
+        if score >= values.moderate:
+            return "Moderate accuracy - some key information present" + caution
+        if score >= values.low:
+            return "Low accuracy - limited match with reference" + caution
         else:
-            return "Very low accuracy - little to no match with reference"
+            return "Very low accuracy - little to no match with reference" + caution
 
 """ENHANCED RELEVANCE METRICS"""
 
@@ -1066,7 +1035,7 @@ class EnhancedLLMEvaluator:
         with ThreadPoolExecutor(max_workers=4) as executor:
             # Submit all evaluations
             accuracy_future = executor.submit(
-                self.accuracy_evaluator.evaluate, reference, response, question
+                self.accuracy_evaluator.evaluate, reference, response, category, question
             )
             relevance_future = executor.submit(
                 self.relevance_evaluator.evaluate, question, response, category
