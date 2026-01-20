@@ -12,14 +12,14 @@ A Python framework for evaluating LLM outputs with automated scoring, intelligen
 - **Safety Detection**: Bias, stereotypes, misinformation patterns
 - **Quality Assessment**: Fluency, coherence, conciseness, readability
 - **Category-Aware**: Different weights for factual, creative, sensitive questions
-- (View detailed metrics descriptions with their respective equations at [evaluate_documentation.ipynb](documentation/evaluate_documentation.ipynb))
+- (View detailed metrics descriptions with their respective equations at [evaluation_documentation.ipynb](documentation/evaluation_documentation.ipynb))
 
 ### **Intelligent Failure Analysis**
 - **Root Cause Diagnosis**: Automatic failure categorization
 - **Confidence Scoring**: Statistical confidence in failure diagnoses
 - **Actionable Suggestions**: Specific improvement recommendations
 - **Performance Insights**: Category-wise and metric-wise analysis
-- (View detailed metrics descriptions at [analyzer_documentation.ipynb](documentation/analyzer_documentation.ipynb))
+- (View detailed metrics descriptions at [analysis_documentation.ipynb](documentation/analysis_documentation.ipynb))
 
 ### **Interactive Visualization**
 - **Dashboard**: 9-panel interactive dashboard (HTML) hosted on GitHub Pages ([View the Live Dashboard](https://lorenapuhl.github.io/llm-evaluation-framework/))
@@ -87,7 +87,7 @@ llm-evaluation-framework/
     ├──  example_usage.ipynb               # Jupyter notebook with examples
     ├──  evaluation_documentation.ipynb    # evaluate.py documentation
     ├──  improvements_roadmap.ipynb        # pending improvements
-    ├──2026-01-20-numerical_analysis.ipynb # Numerical analysis of results from version 1.0.0 o enhance script (leaing to version 2.)   
+    ├──  2026-01-20-numerical_analysis.ipynb # Numerical analysis of results from version 1.0.0 o enhance script (leaing to version 2.)   
 	└──  analysis_documentation.ipynb      # analyze.py documentation
 ```
 

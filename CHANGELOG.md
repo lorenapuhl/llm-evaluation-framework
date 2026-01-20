@@ -7,6 +7,7 @@
 - **Reason**: N-gram metrics (BLEU/ROUGE-2) perform poorly on diverse responses and accuracy measures not appropriate for creative and sensitive questions
 - **Analysis**: See notebook `2026-01-20_numerical_analysis.ipynb`, section 1
 - **Impact**: Users now see warnings when metrics are unreliable and more appropriate feedback
+- **commit**: 76a1da5
 
 ## [1.0.0] - 2026-01-14
 ### Added
