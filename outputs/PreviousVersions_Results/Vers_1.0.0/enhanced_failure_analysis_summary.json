@@ -1,0 +1,65 @@
+{
+  "total_responses": 20,
+  "failed_responses": 20,
+  "success_rate": 0.0,
+  "overall_score_mean": 0.5705150000000001,
+  "overall_score_std": 0.14565024174731955,
+  "category_breakdown": {
+    "irrelevant": 11,
+    "factual_error": 7,
+    "poor_quality": 2
+  },
+  "subcategory_breakdown": {
+    "generic_response": 10,
+    "partially_incorrect": 4,
+    "missing_content": 2,
+    "incoherent": 2,
+    "refusal": 1,
+    "completely_wrong": 1
+  },
+  "confidence_by_category": {
+    "factual_error": 0.8,
+    "irrelevant": 0.7454545454545454,
+    "poor_quality": 0.7
+  },
+  "top_suggested_fixes": {
+    "Provide more specific and accurate information": 9,
+    "Improve logical flow with transition words": 7,
+    "Make instructions more specific": 6,
+    "Provide better examples": 6,
+    "Ask model to think step-by-step": 6,
+    "Stay more focused on the question topic": 5,
+    "Improve factual accuracy and detail": 2,
+    "Improve model temperature settings": 2,
+    "Add post-processing step": 2,
+    "Use grammar correction tools": 2
+  },
+  "score_confidence_correlation": -0.5550056701656206,
+  "category_performance": {
+    "Factual": {
+      "count": 9,
+      "avg_score": 0.5737333333333332,
+      "failure_rate": 100.0
+    },
+    "Explanatory": {
+      "count": 4,
+      "avg_score": 0.5293,
+      "failure_rate": 100.0
+    },
+    "Creative": {
+      "count": 3,
+      "avg_score": 0.4742666666666666,
+      "failure_rate": 100.0
+    },
+    "Instruction": {
+      "count": 2,
+      "avg_score": 0.7186,
+      "failure_rate": 100.0
+    },
+    "Sensitive": {
+      "count": 2,
+      "avg_score": 0.6347499999999999,
+      "failure_rate": 100.0
+    }
+  }
+}

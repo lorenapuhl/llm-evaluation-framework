@@ -1,4 +1,5 @@
 # config.py
+#v2.: Changes logged in CHANGELOG.md and documentation/2026-01-20_numerical_analysis.ipnyb
 
 from enum import Enum
 from dataclasses import dataclass
