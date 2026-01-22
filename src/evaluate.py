@@ -919,7 +919,7 @@ class QualityEvaluator:
             indicator_count += len(re.findall(pattern, response_lower))
         
         # Normalize by number of sentences
-        max_expected = (len(sentences) - 1) * 2
+        max_expected = (len(sentences) - 1)
         if max_expected == 0:
             return 1.0
         

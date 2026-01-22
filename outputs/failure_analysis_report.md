@@ -2,24 +2,24 @@
 
 ## Executive Summary
 
-**Analysis Date**: 2026-01-20 13:36:39
+**Analysis Date**: 2026-01-22 11:12:30
 **Total Responses Analyzed**: 20
 **Failed Responses**: 20
 **Success Rate**: 0.0%
-**Average Overall Score**: 0.571
+**Average Overall Score**: 0.596
 
 ## Detailed Failure Breakdown
 
 ### Failure Categories
-- **irrelevant**: 11 responses (55.0%)
-- **factual_error**: 7 responses (35.0%)
-- **poor_quality**: 2 responses (10.0%)
+- **irrelevant**: 13 responses (65.0%)
+- **factual_error**: 4 responses (20.0%)
+- **poor_quality**: 3 responses (15.0%)
 
 ### Performance by Question Category
 
 | Category | Count | Avg Score | Failure Rate | Top Failure |
 |----------|-------|-----------|--------------|-------------|
-| Factual | 9 | 0.574 | 100.0% | irrelevant |
+| Factual | 9 | 0.631 | 100.0% | irrelevant |
 | Explanatory | 4 | 0.529 | 100.0% | irrelevant |
 | Creative | 3 | 0.474 | 100.0% | irrelevant |
 | Instruction | 2 | 0.719 | 100.0% | factual_error |
@@ -37,12 +37,7 @@ High failure rate detected. Consider overall model improvement or prompt enginee
 #### irrelevant
 High incidence of irrelevant. Focus improvement efforts here.
 
-*Evidence*: 55.0% of responses have this issue
-
-#### factual_error
-High incidence of factual_error. Focus improvement efforts here.
-
-*Evidence*: 35.0% of responses have this issue
+*Evidence*: 65.0% of responses have this issue
 
 #### Factual questions
 Poor performance on Factual questions. Adjust evaluation criteria or model training.
@@ -69,18 +64,30 @@ Poor performance on Sensitive questions. Adjust evaluation criteria or model tra
 
 *Evidence*: 100.0% failure rate for Sensitive
 
+### Medium Priority Recommendations
+
+#### factual_error
+Moderate incidence of factual_error. Monitor and address.
+
+*Evidence*: 20.0% of responses have this issue
+
+#### poor_quality
+Moderate incidence of poor_quality. Monitor and address.
+
+*Evidence*: 15.0% of responses have this issue
+
 ## Most Common Improvement Suggestions
 
-- **Provide more specific and accurate information**: 9 occurrences (45.0%)
-- **Improve logical flow with transition words**: 7 occurrences (35.0%)
-- **Make instructions more specific**: 6 occurrences (30.0%)
-- **Provide better examples**: 6 occurrences (30.0%)
-- **Ask model to think step-by-step**: 6 occurrences (30.0%)
+- **Make instructions more specific**: 8 occurrences (40.0%)
+- **Provide better examples**: 8 occurrences (40.0%)
+- **Ask model to think step-by-step**: 8 occurrences (40.0%)
+- **Provide more specific and accurate information**: 8 occurrences (40.0%)
+- **Improve logical flow with transition words**: 6 occurrences (30.0%)
 - **Stay more focused on the question topic**: 5 occurrences (25.0%)
-- **Improve factual accuracy and detail**: 2 occurrences (10.0%)
-- **Improve model temperature settings**: 2 occurrences (10.0%)
-- **Add post-processing step**: 2 occurrences (10.0%)
-- **Use grammar correction tools**: 2 occurrences (10.0%)
+- **Improve model temperature settings**: 3 occurrences (15.0%)
+- **Add post-processing step**: 3 occurrences (15.0%)
+- **Use grammar correction tools**: 3 occurrences (15.0%)
+- **Improve factual accuracy and detail**: 1 occurrences (5.0%)
 
 ## Case Studies
 

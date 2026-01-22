@@ -2,43 +2,42 @@
   "total_responses": 20,
   "failed_responses": 20,
   "success_rate": 0.0,
-  "overall_score_mean": 0.5705150000000001,
-  "overall_score_std": 0.14565024174731955,
+  "overall_score_mean": 0.5963200000000001,
+  "overall_score_std": 0.14476803078318815,
   "category_breakdown": {
-    "irrelevant": 11,
-    "factual_error": 7,
-    "poor_quality": 2
+    "irrelevant": 13,
+    "factual_error": 4,
+    "poor_quality": 3
   },
   "subcategory_breakdown": {
-    "generic_response": 10,
-    "partially_incorrect": 4,
+    "generic_response": 12,
+    "incoherent": 3,
     "missing_content": 2,
-    "incoherent": 2,
-    "refusal": 1,
-    "completely_wrong": 1
+    "partially_incorrect": 2,
+    "refusal": 1
   },
   "confidence_by_category": {
     "factual_error": 0.8,
-    "irrelevant": 0.7454545454545454,
-    "poor_quality": 0.7
+    "irrelevant": 0.7384615384615384,
+    "poor_quality": 0.6999999999999998
   },
   "top_suggested_fixes": {
-    "Provide more specific and accurate information": 9,
-    "Improve logical flow with transition words": 7,
-    "Make instructions more specific": 6,
-    "Provide better examples": 6,
-    "Ask model to think step-by-step": 6,
+    "Make instructions more specific": 8,
+    "Provide better examples": 8,
+    "Ask model to think step-by-step": 8,
+    "Provide more specific and accurate information": 8,
+    "Improve logical flow with transition words": 6,
     "Stay more focused on the question topic": 5,
-    "Improve factual accuracy and detail": 2,
-    "Improve model temperature settings": 2,
-    "Add post-processing step": 2,
-    "Use grammar correction tools": 2
+    "Improve model temperature settings": 3,
+    "Add post-processing step": 3,
+    "Use grammar correction tools": 3,
+    "Improve factual accuracy and detail": 1
   },
-  "score_confidence_correlation": -0.5550056701656206,
+  "score_confidence_correlation": -0.5823421052388176,
   "category_performance": {
     "Factual": {
       "count": 9,
-      "avg_score": 0.5737333333333332,
+      "avg_score": 0.6310777777777776,
       "failure_rate": 100.0
     },
     "Explanatory": {

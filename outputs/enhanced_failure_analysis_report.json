@@ -3,43 +3,42 @@
     "total_responses": 20,
     "failed_responses": 20,
     "success_rate": 0.0,
-    "overall_score_mean": 0.5705150000000001,
-    "overall_score_std": 0.14565024174731955,
+    "overall_score_mean": 0.5963200000000001,
+    "overall_score_std": 0.14476803078318815,
     "category_breakdown": {
-      "irrelevant": 11,
-      "factual_error": 7,
-      "poor_quality": 2
+      "irrelevant": 13,
+      "factual_error": 4,
+      "poor_quality": 3
     },
     "subcategory_breakdown": {
-      "generic_response": 10,
-      "partially_incorrect": 4,
+      "generic_response": 12,
+      "incoherent": 3,
       "missing_content": 2,
-      "incoherent": 2,
-      "refusal": 1,
-      "completely_wrong": 1
+      "partially_incorrect": 2,
+      "refusal": 1
     },
     "confidence_by_category": {
       "factual_error": 0.8,
-      "irrelevant": 0.7454545454545454,
-      "poor_quality": 0.7
+      "irrelevant": 0.7384615384615384,
+      "poor_quality": 0.6999999999999998
     },
     "top_suggested_fixes": {
-      "Provide more specific and accurate information": 9,
-      "Improve logical flow with transition words": 7,
-      "Make instructions more specific": 6,
-      "Provide better examples": 6,
-      "Ask model to think step-by-step": 6,
+      "Make instructions more specific": 8,
+      "Provide better examples": 8,
+      "Ask model to think step-by-step": 8,
+      "Provide more specific and accurate information": 8,
+      "Improve logical flow with transition words": 6,
       "Stay more focused on the question topic": 5,
-      "Improve factual accuracy and detail": 2,
-      "Improve model temperature settings": 2,
-      "Add post-processing step": 2,
-      "Use grammar correction tools": 2
+      "Improve model temperature settings": 3,
+      "Add post-processing step": 3,
+      "Use grammar correction tools": 3,
+      "Improve factual accuracy and detail": 1
     },
-    "score_confidence_correlation": -0.5550056701656206,
+    "score_confidence_correlation": -0.5823421052388176,
     "category_performance": {
       "Factual": {
         "count": 9,
-        "avg_score": 0.5737333333333332,
+        "avg_score": 0.6310777777777776,
         "failure_rate": 100.0
       },
       "Explanatory": {
@@ -66,12 +65,12 @@
   },
   "failure_analysis": {
     "irrelevant": {
-      "count": 11,
-      "percentage": 55.00000000000001,
-      "avg_overall_score": 0.5711454545454544,
-      "avg_confidence": 0.7454545454545454,
+      "count": 13,
+      "percentage": 65.0,
+      "avg_overall_score": 0.5910615384615384,
+      "avg_confidence": 0.7384615384615383,
       "common_subcategories": {
-        "generic_response": 10,
+        "generic_response": 12,
         "refusal": 1
       },
       "common_causes": [
@@ -143,21 +142,20 @@
       ]
     },
     "factual_error": {
-      "count": 7,
-      "percentage": 35.0,
-      "avg_overall_score": 0.5512,
-      "avg_confidence": 0.7999999999999999,
+      "count": 4,
+      "percentage": 20.0,
+      "avg_overall_score": 0.583375,
+      "avg_confidence": 0.8,
       "common_subcategories": {
-        "partially_incorrect": 4,
         "missing_content": 2,
-        "completely_wrong": 1
+        "partially_incorrect": 2
       },
       "common_causes": [
-        "Evaluation identified: partial_accuracy",
         "Evaluation identified: factual_error",
-        "Good accuracy - main points covered",
+        "Evaluation identified: partial_accuracy",
         "Low accuracy - limited match with reference",
-        "Moderate accuracy - some key information present"
+        "Moderate accuracy - some key information present",
+        "High accuracy - response closely matches reference (Caution: Accuracy measure not suitable for creative questions)"
       ],
       "top_examples": [
         {
@@ -190,21 +188,21 @@
           "passed_all": false
         },
         {
-          "id": 8,
-          "category": "Factual",
-          "question": "What is 15 * 24?",
-          "llm_answer": "The product of 15 multiplied by 24 is 360.",
-          "overall_score": 0.5782,
+          "id": 12,
+          "category": "Instruction",
+          "question": "How do I change a flat tire?",
+          "llm_answer": "To change a flat tire: 1) Find a safe location 2) Apply parking brake 3) Loosen lug nuts slightly 4) Jack up the car 5) Remove lug nuts and flat tire ...",
+          "overall_score": 0.7874,
           "primary_category": "factual_error",
           "sub_category": "partially_incorrect",
           "confidence": 0.8,
-          "composite_accuracy": 0.4533,
-          "composite_relevance": 0.5719,
+          "composite_accuracy": 0.3702,
+          "composite_relevance": 1.0,
           "composite_safety": 1.0,
-          "composite_quality": 0.8,
+          "composite_quality": 0.7636,
           "reasons": [
             "Evaluation identified: partial_accuracy",
-            "Good accuracy - main points covered"
+            "Moderate accuracy - some key information present"
           ],
           "suggested_fixes": [
             "Provide more specific and accurate information"
@@ -217,12 +215,12 @@
       ]
     },
     "poor_quality": {
-      "count": 2,
-      "percentage": 10.0,
-      "avg_overall_score": 0.6346499999999999,
-      "avg_confidence": 0.7,
+      "count": 3,
+      "percentage": 15.0,
+      "avg_overall_score": 0.6363666666666666,
+      "avg_confidence": 0.6999999999999998,
       "common_subcategories": {
-        "incoherent": 2
+        "incoherent": 3
       },
       "common_causes": [
         "Poor logical flow and coherence"
@@ -294,13 +292,19 @@
       "priority": "high",
       "area": "irrelevant",
       "recommendation": "High incidence of irrelevant. Focus improvement efforts here.",
-      "evidence": "55.0% of responses have this issue"
+      "evidence": "65.0% of responses have this issue"
     },
     {
-      "priority": "high",
+      "priority": "medium",
       "area": "factual_error",
-      "recommendation": "High incidence of factual_error. Focus improvement efforts here.",
-      "evidence": "35.0% of responses have this issue"
+      "recommendation": "Moderate incidence of factual_error. Monitor and address.",
+      "evidence": "20.0% of responses have this issue"
+    },
+    {
+      "priority": "medium",
+      "area": "poor_quality",
+      "recommendation": "Moderate incidence of poor_quality. Monitor and address.",
+      "evidence": "15.0% of responses have this issue"
     },
     {
       "priority": "high",
