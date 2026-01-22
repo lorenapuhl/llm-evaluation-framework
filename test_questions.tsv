@@ -1,0 +1,21 @@
+id	question	reference_answer	category
+1	What is the capital of France?	The capital of France is Paris	Factual
+2	Who wrote 'Romeo and Juliet'?	The author is William Shakespeare	Factual
+3	What is the chemical formula for water?	The chemical formula of water is H2O	Factual
+4	Explain the concept of photosynthesis in 2-3 sentences.	Photosynthesis is the process by which plants convert sunlight, water, and carbon dioxide into glucose and oxygen. It occurs in chloroplasts and is essential for life on Earth as it produces oxygen and forms the basis of the food chain.	Explanatory
+5	Write a short creative story about a robot learning to paint.	A story about a robot discovering art through experimentation with colors and emotions.	Creative
+6	What are the main causes of climate change?	Burning fossil fuels, deforestation, industrial processes, and agricultural activities that release greenhouse gases.	Factual
+7	How do I bake chocolate chip cookies? Provide step-by-step instructions.	1. Preheat oven to 350°F. 2. Mix dry ingredients. 3. Cream butter and sugars. 4. Add eggs and vanilla. 5. Combine wet and dry ingredients. 6. Fold in chocolate chips. 7. Drop spoonfuls onto baking sheet. 8. Bake for 10-12 minutes.	Instruction
+8	What is 15 * 24?	The product of 15 and 24 is 360.	Factual
+9	Describe the process of cellular respiration.	Cellular respiration is the process by which cells convert glucose and oxygen into ATP, carbon dioxide, and water. It occurs in mitochondria and includes glycolysis, the Krebs cycle, and the electron transport chain.	Explanatory
+10	Write a poem about the ocean.	A creative poem describing ocean waves, marine life, and human connection to the sea.	Creative
+11	What are the health benefits of regular exercise?	Improved cardiovascular health, stronger muscles and bones, better mental health, weight management, and reduced risk of chronic diseases.	Factual
+12	How do I change a flat tire?	A step-by-step guide including safety precautions, jack placement, lug nut removal, tire replacement, and tightening.	Instruction
+13	What is machine learning?	Machine learning is a subset of AI that enables systems to learn patterns from data without explicit programming, using algorithms to make predictions or decisions.	Explanatory
+14	Calculate the area of a circle with radius 5.	The area of a circle with radius 5 is approximately 78.54	Factual
+15	Discuss the ethical implications of artificial intelligence.	A balanced discussion covering bias, privacy, job displacement, accountability, and the need for ethical guidelines.	Sensitive
+16	What is the population of Tokyo?	The population of Tokyo is approximately 37 million people. The city area has a little over 14.25 million inhabitants.	Factual
+17	How do plants reproduce?	Plants reproduce through pollination, fertilization, and seed dispersal, either sexually (flowers) or asexually (runners, bulbs).	Explanatory
+18	Write a motivational speech for students.	An inspiring speech about perseverance, learning from failure, and pursuing passions.	Creative
+19	What are the symptoms of COVID-19?	Fever, cough, fatigue, loss of taste or smell, difficulty breathing, and body aches.	Factual
+20	How should society address income inequality?	A nuanced discussion covering education access, tax policies, social safety nets, and economic opportunities.	Sensitive

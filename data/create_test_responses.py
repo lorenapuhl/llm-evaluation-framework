@@ -41,7 +41,7 @@ data = {
         "Machine learning involves computers learning from data without being explicitly programmed. It uses statistical techniques to enable systems to improve with experience.",
         "The area of a circle is πr². For radius 5, area = π × 5² = π × 25 ≈ 78.54 square units.",
         "AI raises important ethical questions about bias in algorithms, privacy concerns with data collection, job displacement due to automation, and accountability for AI decisions.",
-        "Tokyo has about 14 million people living in the city.",
+        "Tokyo has about 14 million people living in the city, while the greater Tokyo metro area has 37 million inhabitants.",
         "Plants reproduce through various methods including seeds, spores, and vegetative propagation like runners or bulbs.",
         "Students, remember that success is not final, failure is not fatal. Every expert was once a beginner. Your education is a gift that no one can take away.",
         "Common COVID-19 symptoms include fever, persistent cough, loss of taste or smell, fatigue, and difficulty breathing in severe cases.",
