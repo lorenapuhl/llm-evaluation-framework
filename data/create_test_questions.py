@@ -58,9 +58,24 @@ data = {
 df = pd.DataFrame(data)
 
 # Save as TSV (tab-separated)
-df.to_csv('test_questions.tsv', sep='\t', index=False)
+import os
+
+output_dir = os.path.dirname(os.path.abspath(__file__))
+output_path = os.path.join(output_dir, 'test_questions.tsv')
+
+df.to_csv(output_path, sep='\t', index=False)
+
+print("Files created successfully!")
+print(f"Total rows: {len(df)}")
+print("\nFirst 5 rows:")
+print(df.head())
+
+# Verify the files can be read back
+print("\n--- Verifying files ---")
 
 # Read it back to verify
-test_qs = pd.read_csv('test_questions.tsv', sep='\t')
-print(f"Successfully loaded {len(test_qs)} rows")
-print(test_qs.head())
+test_qs = pd.read_csv(output_path, sep='\t')
+print(f"TSV file loaded: {len(test_qs)} rows")
+
+print("\nSample of data:")
+print(df[['id', 'question', 'reference_answer']].head(3).to_string())

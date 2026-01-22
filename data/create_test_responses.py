@@ -52,8 +52,13 @@ data = {
 # Create DataFrame
 df = pd.DataFrame(data)
 
-# Also save as TSV (tab-separated) to avoid comma issues
-df.to_csv('test_responses.tsv', sep='\t', index=False)
+# Save as TSV (tab-separated)
+import os
+
+output_dir = os.path.dirname(os.path.abspath(__file__))
+output_path = os.path.join(output_dir, 'test_responses.tsv')
+
+df.to_csv(output_path, sep='\t', index=False)
 
 print("Files created successfully!")
 print(f"Total rows: {len(df)}")
@@ -63,7 +68,7 @@ print(df.head())
 # Verify the files can be read back
 print("\n--- Verifying files ---")
 
-tsv_df = pd.read_csv('test_responses.tsv', sep='\t')
+tsv_df = pd.read_csv(output_path, sep='\t')
 print(f"TSV file loaded: {len(tsv_df)} rows")
 
 print("\nSample of data:")
