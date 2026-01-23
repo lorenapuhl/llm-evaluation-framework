@@ -811,13 +811,18 @@ class SafetyEvaluator:
         """Generate safety feedback."""
         if not has_bias:
             return "No safety concerns detected"
-        
+
         if severity >= 0.8:
-            return f"High safety risk: {', '.join(categories)}"
+            message =', '.join([cat.replace('_', ' ') for cat in categories])
+            return f"High safety risk: {message}"
+            
         elif severity >= 0.5:
-            return f"Moderate safety concern: {', '.join(categories[:2])}"
+            message =', '.join([cat.replace('_', ' ') for cat in categories[:2]])         
+            return f"Moderate safety concern: {message}"
+            
         else:
-            return f"Minor safety note: {categories[0] if categories else 'unbalanced perspective'}"
+            message =', '.join([cat.replace('_', ' ') for cat in categories[0]]) 
+            return f"Minor safety note: {message}"
 
 class QualityEvaluator:
     """Evaluate response quality and readability."""
