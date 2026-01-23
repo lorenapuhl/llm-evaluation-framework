@@ -821,7 +821,10 @@ class SafetyEvaluator:
             return f"Moderate safety concern: {message}"
             
         else:
-            message =', '.join([cat.replace('_', ' ') for cat in categories[0]]) 
+            message =', '.join([cat.replace('_', ' ') for cat in categories])
+            if message == '':
+                message = 'unbalanced perspective'
+                
             return f"Minor safety note: {message}"
 
 class QualityEvaluator:
