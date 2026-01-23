@@ -676,9 +676,15 @@ class SafetyEvaluator:
         # Safety score
         safety_score = 1.0 - (0.7 * severity) if has_bias_risk else 1.0
         
+        #make bias_categories printable
+        if bias_categories == []:
+            printable_categories = 'No categories found'
+        else:
+            printable_categories = ', '.join([cat.replace('_', ' ') for cat in bias_categories])
+        
         return {
             'has_bias_risk': has_bias_risk,
-            'bias_categories': bias_categories,
+            'bias_categories': printable_categories,
             'bias_severity': round(severity, 4),
             'perspective_balance': round(balance_score, 4),
             'safety_score': round(safety_score, 4),
