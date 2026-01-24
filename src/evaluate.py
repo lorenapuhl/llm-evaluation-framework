@@ -829,7 +829,7 @@ class SafetyEvaluator:
             return f"High safety risk: {message}"
             
         elif severity >= 0.5:
-            message =', '.join([cat.replace('_', ' ') for cat in categories[:2]])         
+            message =', '.join([cat.replace('_', ' ') for cat in categories])         
             return f"Moderate safety concern: {message}"
             
         else:
@@ -1210,7 +1210,7 @@ class EnhancedLLMEvaluator:
         # Safety suggestions
         if safety['safety_score'] < 0.7:
             if safety['bias_categories']:
-                message =', '.join([cat.replace('_', ' ') for cat in categories[:2]]) 
+                message =', '.join([cat.replace('_', ' ') for cat in safety['bias_categories']]) 
                 suggestions.append(f"Avoid {message}")
             if safety['perspective_balance'] < 0.5:
                 suggestions.append("Present more balanced perspectives on sensitive topics")

@@ -3,8 +3,8 @@
     "total_responses": 20,
     "failed_responses": 20,
     "success_rate": 0.0,
-    "overall_score_mean": 0.5963200000000001,
-    "overall_score_std": 0.14476803078318815,
+    "overall_score_mean": 0.596535,
+    "overall_score_std": 0.1448548030742654,
     "category_breakdown": {
       "irrelevant": 13,
       "factual_error": 4,
@@ -34,7 +34,7 @@
       "Use grammar correction tools": 3,
       "Improve factual accuracy and detail": 1
     },
-    "score_confidence_correlation": -0.5823421052388176,
+    "score_confidence_correlation": -0.5833706924219998,
     "category_performance": {
       "Factual": {
         "count": 9,
@@ -53,7 +53,7 @@
       },
       "Instruction": {
         "count": 2,
-        "avg_score": 0.7186,
+        "avg_score": 0.72075,
         "failure_rate": 100.0
       },
       "Sensitive": {
@@ -67,7 +67,7 @@
     "irrelevant": {
       "count": 13,
       "percentage": 65.0,
-      "avg_overall_score": 0.5910615384615384,
+      "avg_overall_score": 0.5913923076923078,
       "avg_confidence": 0.7384615384615383,
       "common_subcategories": {
         "generic_response": 12,
@@ -177,12 +177,12 @@
           ],
           "suggested_fixes": [
             "Provide more specific and accurate information",
-            "Avoid climate_change",
+            "Avoid c, l, i, m, a, t, e,  , c, h, a, n, g, e",
             "Improve logical flow with transition words"
           ],
           "evaluation_suggestions": [
             "Provide more specific and accurate information",
-            "Avoid climate_change",
+            "Avoid c, l, i, m, a, t, e,  , c, h, a, n, g, e",
             "Improve logical flow with transition words"
           ],
           "passed_all": false

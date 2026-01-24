@@ -2,11 +2,11 @@
 
 ## Executive Summary
 
-**Analysis Date**: 2026-01-22 11:12:30
+**Analysis Date**: 2026-01-23 19:28:29
 **Total Responses Analyzed**: 20
 **Failed Responses**: 20
 **Success Rate**: 0.0%
-**Average Overall Score**: 0.596
+**Average Overall Score**: 0.597
 
 ## Detailed Failure Breakdown
 
@@ -22,7 +22,7 @@
 | Factual | 9 | 0.631 | 100.0% | irrelevant |
 | Explanatory | 4 | 0.529 | 100.0% | irrelevant |
 | Creative | 3 | 0.474 | 100.0% | irrelevant |
-| Instruction | 2 | 0.719 | 100.0% | factual_error |
+| Instruction | 2 | 0.721 | 100.0% | factual_error |
 | Sensitive | 2 | 0.635 | 100.0% | factual_error |
 
 ## Recommendations
