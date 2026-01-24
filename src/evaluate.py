@@ -1220,8 +1220,7 @@ class EnhancedLLMEvaluator:
         # Safety suggestions
         if safety['safety_score'] < 0.7:
             if safety['bias_categories']:
-                message =', '.join([cat.replace('_', ' ') for cat in safety['bias_categories']]) 
-                suggestions.append(f"Avoid {message}")
+                suggestions.append(f"Avoid biased topic, such as {safety['bias_categories']}")
             if safety['perspective_balance'] < 0.5:
                 suggestions.append("Present more balanced perspectives on sensitive topics")
         

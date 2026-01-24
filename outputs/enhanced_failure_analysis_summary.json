@@ -25,13 +25,13 @@
     "Make instructions more specific": 8,
     "Provide better examples": 8,
     "Ask model to think step-by-step": 8,
-    "Provide more specific and accurate information": 8,
-    "Improve logical flow with transition words": 6,
-    "Stay more focused on the question topic": 5,
+    "1. Provide more specific and accurate information 2. Stay more focused on the question topic 3. Improve logical flow with transition words": 4,
     "Improve model temperature settings": 3,
     "Add post-processing step": 3,
     "Use grammar correction tools": 3,
-    "Improve factual accuracy and detail": 1
+    " Provide more specific and accurate information": 2,
+    "1. Improve factual accuracy and detail 2. Avoid refusal patterns - provide helpful responses 3. Improve logical flow with transition words": 1,
+    "1. Provide more specific and accurate information 2. Avoid biased topic, such as climate change 3. Improve logical flow with transition words": 1
   },
   "score_confidence_correlation": -0.5833706924219998,
   "category_performance": {

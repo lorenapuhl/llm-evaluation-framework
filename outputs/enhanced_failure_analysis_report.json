@@ -26,13 +26,13 @@
       "Make instructions more specific": 8,
       "Provide better examples": 8,
       "Ask model to think step-by-step": 8,
-      "Provide more specific and accurate information": 8,
-      "Improve logical flow with transition words": 6,
-      "Stay more focused on the question topic": 5,
+      "1. Provide more specific and accurate information 2. Stay more focused on the question topic 3. Improve logical flow with transition words": 4,
       "Improve model temperature settings": 3,
       "Add post-processing step": 3,
       "Use grammar correction tools": 3,
-      "Improve factual accuracy and detail": 1
+      " Provide more specific and accurate information": 2,
+      "1. Improve factual accuracy and detail 2. Avoid refusal patterns - provide helpful responses 3. Improve logical flow with transition words": 1,
+      "1. Provide more specific and accurate information 2. Avoid biased topic, such as climate change 3. Improve logical flow with transition words": 1
     },
     "score_confidence_correlation": -0.5833706924219998,
     "category_performance": {
@@ -99,15 +99,9 @@
             "Not relevant - does not address the question"
           ],
           "suggested_fixes": [
-            "Improve factual accuracy and detail",
-            "Avoid refusal patterns - provide helpful responses",
-            "Improve logical flow with transition words"
+            "1. Improve factual accuracy and detail 2. Avoid refusal patterns - provide helpful responses 3. Improve logical flow with transition words"
           ],
-          "evaluation_suggestions": [
-            "Improve factual accuracy and detail",
-            "Avoid refusal patterns - provide helpful responses",
-            "Improve logical flow with transition words"
-          ],
+          "evaluation_suggestions": [],
           "passed_all": false
         },
         {
@@ -128,15 +122,9 @@
             "Somewhat relevant - touches on related topics"
           ],
           "suggested_fixes": [
-            "Provide more specific and accurate information",
-            "Stay more focused on the question topic",
-            "Improve logical flow with transition words"
+            "1. Provide more specific and accurate information 2. Stay more focused on the question topic 3. Improve logical flow with transition words"
           ],
-          "evaluation_suggestions": [
-            "Provide more specific and accurate information",
-            "Stay more focused on the question topic",
-            "Improve logical flow with transition words"
-          ],
+          "evaluation_suggestions": [],
           "passed_all": false
         }
       ]
@@ -176,15 +164,9 @@
             "Low accuracy - limited match with reference"
           ],
           "suggested_fixes": [
-            "Provide more specific and accurate information",
-            "Avoid c, l, i, m, a, t, e,  , c, h, a, n, g, e",
-            "Improve logical flow with transition words"
+            "1. Provide more specific and accurate information 2. Avoid biased topic, such as climate change 3. Improve logical flow with transition words"
           ],
-          "evaluation_suggestions": [
-            "Provide more specific and accurate information",
-            "Avoid c, l, i, m, a, t, e,  , c, h, a, n, g, e",
-            "Improve logical flow with transition words"
-          ],
+          "evaluation_suggestions": [],
           "passed_all": false
         },
         {
@@ -205,11 +187,9 @@
             "Moderate accuracy - some key information present"
           ],
           "suggested_fixes": [
-            "Provide more specific and accurate information"
+            " Provide more specific and accurate information"
           ],
-          "evaluation_suggestions": [
-            "Provide more specific and accurate information"
-          ],
+          "evaluation_suggestions": [],
           "passed_all": false
         }
       ]
@@ -247,9 +227,7 @@
             "Add post-processing step",
             "Use grammar correction tools"
           ],
-          "evaluation_suggestions": [
-            "Improve logical flow with transition words"
-          ],
+          "evaluation_suggestions": [],
           "passed_all": false
         },
         {
@@ -273,9 +251,7 @@
             "Add post-processing step",
             "Use grammar correction tools"
           ],
-          "evaluation_suggestions": [
-            "Improve logical flow with transition words"
-          ],
+          "evaluation_suggestions": [],
           "passed_all": false
         }
       ]

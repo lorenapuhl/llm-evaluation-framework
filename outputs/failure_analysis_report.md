@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-**Analysis Date**: 2026-01-23 19:28:29
+**Analysis Date**: 2026-01-23 20:35:58
 **Total Responses Analyzed**: 20
 **Failed Responses**: 20
 **Success Rate**: 0.0%
@@ -81,13 +81,13 @@ Moderate incidence of poor_quality. Monitor and address.
 - **Make instructions more specific**: 8 occurrences (40.0%)
 - **Provide better examples**: 8 occurrences (40.0%)
 - **Ask model to think step-by-step**: 8 occurrences (40.0%)
-- **Provide more specific and accurate information**: 8 occurrences (40.0%)
-- **Improve logical flow with transition words**: 6 occurrences (30.0%)
-- **Stay more focused on the question topic**: 5 occurrences (25.0%)
+- **1. Provide more specific and accurate information 2. Stay more focused on the question topic 3. Improve logical flow with transition words**: 4 occurrences (20.0%)
 - **Improve model temperature settings**: 3 occurrences (15.0%)
 - **Add post-processing step**: 3 occurrences (15.0%)
 - **Use grammar correction tools**: 3 occurrences (15.0%)
-- **Improve factual accuracy and detail**: 1 occurrences (5.0%)
+- ** Provide more specific and accurate information**: 2 occurrences (10.0%)
+- **1. Improve factual accuracy and detail 2. Avoid refusal patterns - provide helpful responses 3. Improve logical flow with transition words**: 1 occurrences (5.0%)
+- **1. Provide more specific and accurate information 2. Avoid biased topic, such as climate change 3. Improve logical flow with transition words**: 1 occurrences (5.0%)
 
 ## Case Studies
 
