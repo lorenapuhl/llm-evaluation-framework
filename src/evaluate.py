@@ -1323,7 +1323,7 @@ def evaluate_all_pairs_enhanced(questions_df: pd.DataFrame,
     
     # Combine all columns in logical order
     all_columns = (base_columns + accuracy_columns + relevance_columns + 
-                   safety_columns + quality_columns + feedback_columns + meta_columns)
+                   safety_columns + quality_columns + meta_columns)
     
     # Ensure all columns exist
     existing_columns = [c for c in all_columns if c in results_df.columns]
