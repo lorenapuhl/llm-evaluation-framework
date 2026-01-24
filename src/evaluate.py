@@ -1107,7 +1107,17 @@ class EnhancedLLMEvaluator:
         suggestions = self._generate_improvement_suggestions(
             accuracy_results, relevance_results, safety_results, quality_results
         )
-        
+   
+        #make suggestions printable (suggestions = ["s1", "s2", ..]
+        if suggestions == []:
+            printable_suggestions = 'No suggestions'
+
+        elif len(suggestions) == 1:
+            printable_suggestions = [f" {sug.replace('_', ' ')}" for sug in suggestions][0]
+
+        else:
+            printable_suggestions = ' '.join([f"{i+1}. {sug.replace('_', ' ')}" for i, sug in enumerate(suggestions)])   
+   
         # Prepare comprehensive results
         results = {
             # Basic info
@@ -1147,7 +1157,7 @@ class EnhancedLLMEvaluator:
                 'quality': weights.quality_weight
             },
             'primary_failure_mode': failure_mode,
-            'improvement_suggestions': suggestions,
+            'improvement_suggestions': printable_suggestions,
             
             # Pass/fail flags
             'passed_accuracy': accuracy_results['composite_accuracy'] >= self.thresholds['accuracy'],
