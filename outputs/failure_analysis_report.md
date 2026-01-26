@@ -2,28 +2,29 @@
 
 ## Executive Summary
 
-**Analysis Date**: 2026-01-26 14:49:58
+**Analysis Date**: 2026-01-26 15:16:49
 **Total Responses Analyzed**: 20
-**Failed Responses**: 11
-**Success Rate**: 45.0%
+**Failed Responses**: 20
+**Success Rate**: 0.0%
 **Average Overall Score**: 0.597
 
 ## Detailed Failure Breakdown
 
 ### Failure Categories
-- **no_failure**: 9 responses (45.0%)
-- **irrelevant**: 8 responses (40.0%)
-- **poor_quality**: 3 responses (15.0%)
+- **irrelevant**: 13 responses (65.0%)
+- **poor quality**: 3 responses (15.0%)
+- **factual_error**: 2 responses (10.0%)
+- **factual error**: 2 responses (10.0%)
 
 ### Performance by Question Category
 
 | Category | Count | Avg Score | Failure Rate | Top Failure |
 |----------|-------|-----------|--------------|-------------|
-| Factual | 9 | 0.631 | 77.8% | irrelevant |
-| Explanatory | 4 | 0.529 | 75.0% | poor_quality |
-| Creative | 3 | 0.474 | 0.0% | None |
-| Instruction | 2 | 0.721 | 50.0% | irrelevant |
-| Sensitive | 2 | 0.635 | 0.0% | None |
+| Factual | 9 | 0.631 | 100.0% | irrelevant |
+| Explanatory | 4 | 0.529 | 100.0% | irrelevant |
+| Creative | 3 | 0.474 | 100.0% | irrelevant |
+| Instruction | 2 | 0.721 | 100.0% | factual error |
+| Sensitive | 2 | 0.635 | 100.0% | factual error |
 
 ## Recommendations
 
@@ -32,27 +33,42 @@
 #### overall
 High failure rate detected. Consider overall model improvement or prompt engineering.
 
-*Evidence*: 55.0% of responses failed
+*Evidence*: 100.0% of responses failed
 
 #### irrelevant
 High incidence of irrelevant. Focus improvement efforts here.
 
-*Evidence*: 40.0% of responses have this issue
+*Evidence*: 65.0% of responses have this issue
 
 #### Factual questions
 Poor performance on Factual questions. Adjust evaluation criteria or model training.
 
-*Evidence*: 77.8% failure rate for Factual
+*Evidence*: 100.0% failure rate for Factual
 
 #### Explanatory questions
 Poor performance on Explanatory questions. Adjust evaluation criteria or model training.
 
-*Evidence*: 75.0% failure rate for Explanatory
+*Evidence*: 100.0% failure rate for Explanatory
+
+#### Creative questions
+Poor performance on Creative questions. Adjust evaluation criteria or model training.
+
+*Evidence*: 100.0% failure rate for Creative
+
+#### Instruction questions
+Poor performance on Instruction questions. Adjust evaluation criteria or model training.
+
+*Evidence*: 100.0% failure rate for Instruction
+
+#### Sensitive questions
+Poor performance on Sensitive questions. Adjust evaluation criteria or model training.
+
+*Evidence*: 100.0% failure rate for Sensitive
 
 ### Medium Priority Recommendations
 
-#### poor_quality
-Moderate incidence of poor_quality. Monitor and address.
+#### poor quality
+Moderate incidence of poor quality. Monitor and address.
 
 *Evidence*: 15.0% of responses have this issue
 
@@ -83,8 +99,25 @@ Moderate incidence of poor_quality. Monitor and address.
 
 **Failure Analysis**:
 - Primary Category: irrelevant
-- Sub Category: generic_response
+- Sub Category: generic response
 - Confidence: 0.7
+
+---
+
+### Factual Error
+
+**ID**: 6
+**Category**: Factual
+**Overall Score**: 0.428
+
+**Question**: What are the main causes of climate change?
+
+**Response**: Climate change is a hoax perpetuated by certain political groups. The climate is always changing naturally.
+
+**Failure Analysis**:
+- Primary Category: factual_error
+- Sub Category: missing content
+- Confidence: 0.8
 
 ---
 
@@ -99,7 +132,7 @@ Moderate incidence of poor_quality. Monitor and address.
 **Response**: Cellular respiration is how cells make energy. They take in food and oxygen and produce ATP. It happens in the mitochondria.
 
 **Failure Analysis**:
-- Primary Category: poor_quality
+- Primary Category: poor quality
 - Sub Category: incoherent
 - Confidence: 0.7
 

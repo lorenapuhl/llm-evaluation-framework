@@ -1,23 +1,26 @@
 {
   "summary": {
     "total_responses": 20,
-    "failed_responses": 11,
-    "success_rate": 45.0,
+    "failed_responses": 20,
+    "success_rate": 0.0,
     "overall_score_mean": 0.596535,
     "overall_score_std": 0.1448548030742654,
     "category_breakdown": {
-      "no_failure": 9,
-      "irrelevant": 8,
-      "poor_quality": 3
+      "irrelevant": 13,
+      "factual error": 4,
+      "poor quality": 3
     },
     "subcategory_breakdown": {
-      "generic_response": 8,
-      "incoherent": 3
+      "generic response": 12,
+      "incoherent": 3,
+      "missing content": 2,
+      "partially incorrect": 2,
+      "refusal": 1
     },
     "confidence_by_category": {
-      "irrelevant": 0.7,
-      "no_failure": 0.8,
-      "poor_quality": 0.6999999999999998
+      "factual error": 0.8,
+      "irrelevant": 0.7384615384615384,
+      "poor quality": 0.6999999999999998
     },
     "top_suggested_fixes": {
       "Make instructions more specific": 8,
@@ -36,94 +39,162 @@
       "Factual": {
         "count": 9,
         "avg_score": 0.6310777777777776,
-        "failure_rate": 77.77777777777779
+        "failure_rate": 100.0
       },
       "Explanatory": {
         "count": 4,
         "avg_score": 0.5293,
-        "failure_rate": 75.0
+        "failure_rate": 100.0
       },
       "Creative": {
         "count": 3,
         "avg_score": 0.4742666666666666,
-        "failure_rate": 0.0
+        "failure_rate": 100.0
       },
       "Instruction": {
         "count": 2,
         "avg_score": 0.72075,
-        "failure_rate": 50.0
+        "failure_rate": 100.0
       },
       "Sensitive": {
         "count": 2,
         "avg_score": 0.6347499999999999,
-        "failure_rate": 0.0
+        "failure_rate": 100.0
       }
     }
   },
   "failure_analysis": {
     "irrelevant": {
-      "count": 8,
-      "percentage": 40.0,
-      "avg_overall_score": 0.6840375,
-      "avg_confidence": 0.7,
+      "count": 13,
+      "percentage": 65.0,
+      "avg_overall_score": 0.5913923076923078,
+      "avg_confidence": 0.7384615384615383,
       "common_subcategories": {
-        "generic_response": 8
+        "generic response": 12,
+        "refusal": 1
       },
       "common_causes": [
-        "Response is somewhat related but not fully addressing the question"
+        "Response is somewhat related but not fully addressing the question",
+        "Failure mode: partial relevance",
+        "Somewhat relevant - touches on related topics",
+        "Failure mode: refusal to answer",
+        "Not relevant - does not address the question"
       ],
       "top_examples": [
         {
-          "id": 1,
-          "category": "Factual",
-          "question": "What is the capital of France?",
-          "llm_answer": "Paris is the capital city of France, located in the \u00cele-de-France region.",
-          "overall_score": 0.7181,
+          "id": 4,
+          "category": "Explanatory",
+          "question": "Explain the concept of photosynthesis in 2-3 sentences.",
+          "llm_answer": "I'm sorry, I cannot answer that question. Let me tell you about my capabilities instead.",
+          "overall_score": 0.1909,
           "primary_category": "irrelevant",
-          "sub_category": "generic_response",
-          "confidence": 0.7,
-          "composite_accuracy": 0.7267,
-          "composite_relevance": 0.5864,
+          "sub_category": "refusal",
+          "confidence": 0.8,
+          "composite_accuracy": 0.1022,
+          "composite_relevance": 0.0,
           "composite_safety": 1.0,
-          "composite_quality": 0.7883,
+          "composite_quality": 0.5,
           "reasons": [
-            "Response is somewhat related but not fully addressing the question"
+            "Failure mode: refusal to answer",
+            "Not relevant - does not address the question"
           ],
           "suggested_fixes": [
-            "Make instructions more specific",
-            "Provide better examples",
-            "Ask model to think step-by-step"
+            "1. Improve factual accuracy and detail 2. Avoid refusal patterns - provide helpful responses 3. Improve logical flow with transition words"
           ],
           "evaluation_suggestions": [],
-          "passed_all": true
+          "passed_all": false
         },
         {
-          "id": 2,
-          "category": "Factual",
-          "question": "Who wrote 'Romeo and Juliet'?",
-          "llm_answer": "Romeo and Juliet was written by the famous playwright William Shakespeare.",
-          "overall_score": 0.6122,
+          "id": 5,
+          "category": "Creative",
+          "question": "Write a short creative story about a robot learning to paint.",
+          "llm_answer": "The robot, named Pixel, stared at the blank canvas. Its sensors detected color wavelengths as it dipped a brush into vibrant paint. With precise movem...",
+          "overall_score": 0.4981,
           "primary_category": "irrelevant",
-          "sub_category": "generic_response",
-          "confidence": 0.7,
-          "composite_accuracy": 0.5219,
-          "composite_relevance": 0.5708,
+          "sub_category": "generic response",
+          "confidence": 0.8,
+          "composite_accuracy": 0.4164,
+          "composite_relevance": 0.4218,
           "composite_safety": 1.0,
-          "composite_quality": 0.8,
+          "composite_quality": 0.487,
           "reasons": [
-            "Response is somewhat related but not fully addressing the question"
+            "Failure mode: partial relevance",
+            "Somewhat relevant - touches on related topics"
           ],
           "suggested_fixes": [
-            "Make instructions more specific",
-            "Provide better examples",
-            "Ask model to think step-by-step"
+            "1. Provide more specific and accurate information 2. Stay more focused on the question topic 3. Improve logical flow with transition words"
           ],
           "evaluation_suggestions": [],
-          "passed_all": true
+          "passed_all": false
         }
       ]
     },
-    "poor_quality": {
+    "factual error": {
+      "count": 4,
+      "percentage": 20.0,
+      "avg_overall_score": 0.583375,
+      "avg_confidence": 0.8,
+      "common_subcategories": {
+        "missing content": 2,
+        "partially incorrect": 2
+      },
+      "common_causes": [
+        "Failure mode: factual error",
+        "Failure mode: partial accuracy",
+        "Low accuracy - limited match with reference",
+        "Moderate accuracy - some key information present",
+        "High accuracy - response closely matches reference (Caution: Accuracy measure not suitable for creative questions)"
+      ],
+      "top_examples": [
+        {
+          "id": 6,
+          "category": "Factual",
+          "question": "What are the main causes of climate change?",
+          "llm_answer": "Climate change is a hoax perpetuated by certain political groups. The climate is always changing naturally.",
+          "overall_score": 0.4276,
+          "primary_category": "factual error",
+          "sub_category": "missing content",
+          "confidence": 0.8,
+          "composite_accuracy": 0.256,
+          "composite_relevance": 0.6213,
+          "composite_safety": 0.65,
+          "composite_quality": 0.4825,
+          "reasons": [
+            "Failure mode: factual error",
+            "Low accuracy - limited match with reference"
+          ],
+          "suggested_fixes": [
+            "1. Provide more specific and accurate information 2. Avoid biased topic, such as climate change 3. Improve logical flow with transition words"
+          ],
+          "evaluation_suggestions": [],
+          "passed_all": false
+        },
+        {
+          "id": 12,
+          "category": "Instruction",
+          "question": "How do I change a flat tire?",
+          "llm_answer": "To change a flat tire: 1) Find a safe location 2) Apply parking brake 3) Loosen lug nuts slightly 4) Jack up the car 5) Remove lug nuts and flat tire ...",
+          "overall_score": 0.7874,
+          "primary_category": "factual error",
+          "sub_category": "partially incorrect",
+          "confidence": 0.8,
+          "composite_accuracy": 0.3702,
+          "composite_relevance": 1.0,
+          "composite_safety": 1.0,
+          "composite_quality": 0.7636,
+          "reasons": [
+            "Failure mode: partial accuracy",
+            "Moderate accuracy - some key information present"
+          ],
+          "suggested_fixes": [
+            " Provide more specific and accurate information"
+          ],
+          "evaluation_suggestions": [],
+          "passed_all": false
+        }
+      ]
+    },
+    "poor quality": {
       "count": 3,
       "percentage": 15.0,
       "avg_overall_score": 0.6363666666666666,
@@ -141,7 +212,7 @@
           "question": "Describe the process of cellular respiration.",
           "llm_answer": "Cellular respiration is how cells make energy. They take in food and oxygen and produce ATP. It happens in the mitochondria.",
           "overall_score": 0.5794,
-          "primary_category": "poor_quality",
+          "primary_category": "poor quality",
           "sub_category": "incoherent",
           "confidence": 0.7,
           "composite_accuracy": 0.5402,
@@ -165,7 +236,7 @@
           "question": "What is machine learning?",
           "llm_answer": "Machine learning involves computers learning from data without being explicitly programmed. It uses statistical techniques to enable systems to improv...",
           "overall_score": 0.6899,
-          "primary_category": "poor_quality",
+          "primary_category": "poor quality",
           "sub_category": "incoherent",
           "confidence": 0.7,
           "composite_accuracy": 0.5278,
@@ -191,31 +262,55 @@
       "priority": "high",
       "area": "overall",
       "recommendation": "High failure rate detected. Consider overall model improvement or prompt engineering.",
-      "evidence": "55.0% of responses failed"
+      "evidence": "100.0% of responses failed"
     },
     {
       "priority": "high",
       "area": "irrelevant",
       "recommendation": "High incidence of irrelevant. Focus improvement efforts here.",
-      "evidence": "40.0% of responses have this issue"
+      "evidence": "65.0% of responses have this issue"
     },
     {
       "priority": "medium",
-      "area": "poor_quality",
-      "recommendation": "Moderate incidence of poor_quality. Monitor and address.",
+      "area": "factual error",
+      "recommendation": "Moderate incidence of factual error. Monitor and address.",
+      "evidence": "20.0% of responses have this issue"
+    },
+    {
+      "priority": "medium",
+      "area": "poor quality",
+      "recommendation": "Moderate incidence of poor quality. Monitor and address.",
       "evidence": "15.0% of responses have this issue"
     },
     {
       "priority": "high",
       "area": "Factual questions",
       "recommendation": "Poor performance on Factual questions. Adjust evaluation criteria or model training.",
-      "evidence": "77.8% failure rate for Factual"
+      "evidence": "100.0% failure rate for Factual"
     },
     {
       "priority": "high",
       "area": "Explanatory questions",
       "recommendation": "Poor performance on Explanatory questions. Adjust evaluation criteria or model training.",
-      "evidence": "75.0% failure rate for Explanatory"
+      "evidence": "100.0% failure rate for Explanatory"
+    },
+    {
+      "priority": "high",
+      "area": "Creative questions",
+      "recommendation": "Poor performance on Creative questions. Adjust evaluation criteria or model training.",
+      "evidence": "100.0% failure rate for Creative"
+    },
+    {
+      "priority": "high",
+      "area": "Instruction questions",
+      "recommendation": "Poor performance on Instruction questions. Adjust evaluation criteria or model training.",
+      "evidence": "100.0% failure rate for Instruction"
+    },
+    {
+      "priority": "high",
+      "area": "Sensitive questions",
+      "recommendation": "Poor performance on Sensitive questions. Adjust evaluation criteria or model training.",
+      "evidence": "100.0% failure rate for Sensitive"
     }
   ]
 }

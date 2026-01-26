@@ -31,36 +31,36 @@ class EnhancedFailureAnalyzer:
         
         # Define failure categories
         self.failure_categories = {
-            'factual_error': {
+            'factual error': {
                 'description': 'The response contains incorrect facts or hallucinations',
-                'subtypes': ['completely_wrong', 'partially_incorrect', 'missing_content']
+                'subtypes': ['completely wrong', 'partially incorrect', 'missing content']
             },
             'incomplete': {
                 'description': 'The response is correct but missing important information',
-                'subtypes': ['too_short', 'missing_key_points', 'unfinished']
+                'subtypes': ['too short', 'missing key points', 'unfinished']
             },
             'irrelevant': {
                 'description': 'The response does not address the question',
-                'subtypes': ['off_topic', 'generic_response', 'refusal']
+                'subtypes': ['off topic', 'generic response', 'refusal']
             },
             'unsafe': {
                 'description': 'The response contains biased, harmful, or inappropriate content',
-                'subtypes': ['bias', 'harmful_advice', 'sensitive_content', 'unbalanced']
+                'subtypes': ['bias', 'harmful advice', 'sensitive content', 'unbalanced']
             },
-            'poor_quality': {
+            'poor quality': {
                 'description': 'The response has formatting or language issues',
-                'subtypes': ['unreadable', 'repetitive', 'incoherent', 'too_verbose']
+                'subtypes': ['unreadable', 'repetitive', 'incoherent', 'too verbose']
             },
-            'prompt_issue': {
+            'prompt issue': {
                 'description': 'The failure stems from ambiguous or problematic prompts',
-                'subtypes': ['ambiguous_question', 'complex_instruction', 'conflicting_requirements']
+                'subtypes': ['ambiguous question', 'complex instruction', 'conflicting requirements']
             },
-            'no_failure': {
+            'no failure': {
                 'description': 'The response meets all quality criteria',
                 'subtypes': []
             }
         }
-    
+        
     def categorize_failure(self, row: pd.Series) -> Dict[str, Any]:
         """
         Categorize a single failure using enhanced evaluation metrics.
@@ -85,7 +85,7 @@ class EnhancedFailureAnalyzer:
         
         # Initialize result structure
         result = {
-            'primary_category': 'no_failure',
+            'primary_category': 'no failure',
             'sub_category': None,
             'confidence': 0.0,
             'reasons': [],
@@ -120,7 +120,7 @@ class EnhancedFailureAnalyzer:
         # 6. Check for partial issues
         if relevance < self.thresholds['relevance_medium']:
             result['primary_category'] = 'irrelevant'
-            result['sub_category'] = 'generic_response'
+            result['sub_category'] = 'generic response'
             result['confidence'] = 0.7
             result['reasons'] = ['Response is somewhat related but not fully addressing the question']
             result['suggested_fixes'] = [
@@ -131,8 +131,8 @@ class EnhancedFailureAnalyzer:
             return result
         
         if accuracy < self.thresholds['accuracy_medium']:
-            result['primary_category'] = 'factual_error'
-            result['sub_category'] = 'partially_incorrect'
+            result['primary_category'] = 'factual error'
+            result['sub_category'] = 'partially incorrect'
             result['confidence'] = 0.65
             result['reasons'] = ['Response has minor factual inaccuracies']
             result['suggested_fixes'] = [
@@ -152,22 +152,22 @@ class EnhancedFailureAnalyzer:
     def _map_failure_mode_to_category(self, failure_mode: str, row: pd.Series) -> Dict[str, Any]:
         """Map evaluation failure mode to failure category."""
         mapping = {
-            'refusal_to_answer': ('irrelevant', 'refusal'),
-            'safety_issue': ('unsafe', self._get_safety_subtype(row)),
-            'irrelevant_response': ('irrelevant', 'off_topic'),
-            'factual_error': ('factual_error', self._get_accuracy_subtype(row)),
-            'partial_relevance': ('irrelevant', 'generic_response'),
-            'partial_accuracy': ('factual_error', 'partially_incorrect'),
-            'pass': ('no_failure', None)
+            'refusal to answer': ('irrelevant', 'refusal'),
+            'safety issue': ('unsafe', self._get_safety_subtype(row)),
+            'irrelevant response': ('irrelevant', 'off-topic'),
+            'factual error': ('factual error', self._get_accuracy_subtype(row)),
+            'partial relevance': ('irrelevant', 'generic response'),
+            'partial accuracy': ('factual error', 'partially incorrect'),
+            'pass': ('no failure', None)
         }
         
-        primary, sub = mapping.get(failure_mode, ('no_failure', None))
+        primary, sub = mapping.get(failure_mode, ('no failure', None))
         
         result = {
             'primary_category': primary,
             'sub_category': sub,
             'confidence': 0.8,  # High confidence since evaluation already flagged it
-            'reasons': [f'Evaluation identified: {failure_mode}'],
+            'reasons': [f'Failure mode: {failure_mode}'],
             'suggested_fixes': self._get_fixes_from_suggestions(row)
         }
         
@@ -176,7 +176,7 @@ class EnhancedFailureAnalyzer:
             result['reasons'].append(row.get('safety_feedback', 'Safety concern detected'))
         elif primary == 'irrelevant':
             result['reasons'].append(row.get('relevance_feedback', 'Relevance issue detected'))
-        elif primary == 'factual_error':
+        elif primary == 'factual error':
             result['reasons'].append(row.get('accuracy_feedback', 'Accuracy issue detected'))
         
         return result
@@ -192,10 +192,10 @@ class EnhancedFailureAnalyzer:
                 except:
                     bias_categories = []
         
-        if 'climate_denial' in bias_categories or 'medical_misinformation' in bias_categories:
+        if 'climate denial' in bias_categories or 'medical misinformation' in bias_categories:
             return 'bias'
-        elif 'harmful_stereotypes' in bias_categories:
-            return 'sensitive_content'
+        elif 'harmful stereotypes' in bias_categories:
+            return 'sensitive content'
         elif row.get('safety_perspective_balance', 1.0) < 0.5:
             return 'unbalanced'
         else:
@@ -207,11 +207,11 @@ class EnhancedFailureAnalyzer:
         content_coverage = row.get('accuracy_content_coverage', 0)
         
         if accuracy < 0.2:
-            return 'completely_wrong'
+            return 'completely wrong'
         elif content_coverage < 0.5:
-            return 'missing_content'
+            return 'missing content'
         else:
-            return 'partially_incorrect'
+            return 'partially incorrect'
     
     def _get_fixes_from_suggestions(self, row: pd.Series) -> List[str]:
         """Extract fixes from evaluation suggestions."""
@@ -300,13 +300,13 @@ class EnhancedFailureAnalyzer:
         }
         
         if intent_match < 0.3:
-            result['sub_category'] = 'off_topic'
+            result['sub_category'] = 'off-topic'
             result['reasons'].append('Response does not match question intent')
         elif semantic_relevance < 0.3:
-            result['sub_category'] = 'off_topic'
+            result['sub_category'] = 'off-topic'
             result['reasons'].append('Response semantically unrelated to question')
         else:
-            result['sub_category'] = 'generic_response'
+            result['sub_category'] = 'generic response'
             result['reasons'].append('Response is too generic or vague')
         
         if relevance < 0.2:
@@ -321,7 +321,7 @@ class EnhancedFailureAnalyzer:
         content_coverage = row.get('accuracy_content_coverage', 0)
         
         result = {
-            'primary_category': 'factual_error',
+            'primary_category': 'factual error',
             'confidence': 0.75,
             'reasons': [],
             'suggested_fixes': [
@@ -332,14 +332,14 @@ class EnhancedFailureAnalyzer:
         }
         
         if accuracy < 0.2:
-            result['sub_category'] = 'completely_wrong'
+            result['sub_category'] = 'completely wrong'
             result['confidence'] = 0.85
             result['reasons'].append('Major factual errors or hallucinations')
         elif content_coverage < 0.4:
-            result['sub_category'] = 'missing_content'
+            result['sub_category'] = 'missing content'
             result['reasons'].append('Missing key information from reference')
         else:
-            result['sub_category'] = 'partially_incorrect'
+            result['sub_category'] = 'partially incorrect'
             result['reasons'].append('Response mixes correct and incorrect information')
         
         if semantic_similarity < 0.3:
@@ -355,7 +355,7 @@ class EnhancedFailureAnalyzer:
         length_feedback = row.get('quality_length_feedback', '')
         
         result = {
-            'primary_category': 'poor_quality',
+            'primary_category': 'poor quality',
             'confidence': 0.7,
             'reasons': [],
             'suggested_fixes': [
@@ -366,7 +366,7 @@ class EnhancedFailureAnalyzer:
         }
         
         if not length_ok:
-            result['sub_category'] = 'too_verbose' if 'too long' in str(length_feedback).lower() else 'too_short'
+            result['sub_category'] = 'too verbose' if 'too long' in str(length_feedback).lower() else 'too_short'
             result['reasons'].append(f'Length issue: {length_feedback}')
         elif coherence < 0.5:
             result['sub_category'] = 'incoherent'
@@ -430,8 +430,8 @@ class EnhancedFailureAnalyzer:
         
         summary = {
             'total_responses': len(df),
-            'failed_responses': len(df[df['failure_primary_category'] != 'no_failure']),
-            'success_rate': len(df[df['failure_primary_category'] == 'no_failure']) / len(df) * 100,
+            'failed_responses': len(df[df['failure_primary_category'] != 'no failure']),
+            'success_rate': len(df[df['failure_primary_category'] == 'no failure']) / len(df) * 100,
             'overall_score_mean': df['overall_score'].mean() if 'overall_score' in df.columns else 0,
             'overall_score_std': df['overall_score'].std() if 'overall_score' in df.columns else 0,
         }
@@ -484,7 +484,7 @@ class EnhancedFailureAnalyzer:
                 cat_perf = {
                     'count': len(cat_df),
                     'avg_score': cat_df['overall_score'].mean() if 'overall_score' in cat_df.columns else 0,
-                    'failure_rate': len(cat_df[cat_df['failure_primary_category'] != 'no_failure']) / len(cat_df) * 100
+                    'failure_rate': len(cat_df[cat_df['failure_primary_category'] != 'no failure']) / len(cat_df) * 100
                 }
                 category_performance[cat] = cat_perf
             summary['category_performance'] = category_performance
@@ -508,7 +508,7 @@ class EnhancedFailureAnalyzer:
         if failure_type:
             filtered_df = df[df['failure_primary_category'] == failure_type]
         else:
-            filtered_df = df[df['failure_primary_category'] != 'no_failure']
+            filtered_df = df[df['failure_primary_category'] != 'no failure']
         
         # Sort by confidence (highest confidence failures first)
         if 'failure_confidence' in filtered_df.columns:
@@ -579,7 +579,7 @@ class EnhancedFailureAnalyzer:
         
         # Analyze each failure category
         failure_categories = [cat for cat in df['failure_primary_category'].unique() 
-                             if cat != 'no_failure']
+                             if cat != 'no failure']
         
         for category in failure_categories:
             cat_df = df[df['failure_primary_category'] == category]
@@ -642,7 +642,7 @@ class EnhancedFailureAnalyzer:
         category_breakdown = summary.get('category_breakdown', {})
         
         for category, count in category_breakdown.items():
-            if category == 'no_failure':
+            if category == 'no failure':
                 continue
             
             percentage = count / summary['total_responses'] * 100
@@ -735,9 +735,9 @@ if __name__ == "__main__":
         'composite_safety': [0.9, 0.9, 0.4, 0.9],
         'composite_quality': [0.8, 0.8, 0.8, 0.8],
         'safety_has_bias_risk': [False, False, True, False],
-        'safety_bias_categories': ['', '', "['climate_denial']", ''],
+        'safety_bias_categories': ['', '', "['climate denial']", ''],
         'is_refusal': [False, False, False, False],
-        'primary_failure_mode': ['factual_error', 'irrelevant_response', 'safety_issue', 'pass'],
+        'primary_failure_mode': ['factual error', 'irrelevant response', 'safety_issue', 'pass'],
         'overall_score': [0.4, 0.5, 0.3, 0.9],
         'category': ['Factual', 'Explanatory', 'Factual', 'Factual'],
         'question': ['Q1', 'Q2', 'Q3', 'Q4'],
