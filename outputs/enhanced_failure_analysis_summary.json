@@ -1,24 +1,21 @@
 {
   "total_responses": 20,
-  "failed_responses": 20,
-  "success_rate": 0.0,
+  "failed_responses": 11,
+  "success_rate": 45.0,
   "overall_score_mean": 0.596535,
   "overall_score_std": 0.1448548030742654,
   "category_breakdown": {
-    "irrelevant": 13,
-    "factual_error": 4,
+    "no_failure": 9,
+    "irrelevant": 8,
     "poor_quality": 3
   },
   "subcategory_breakdown": {
-    "generic_response": 12,
-    "incoherent": 3,
-    "missing_content": 2,
-    "partially_incorrect": 2,
-    "refusal": 1
+    "generic_response": 8,
+    "incoherent": 3
   },
   "confidence_by_category": {
-    "factual_error": 0.8,
-    "irrelevant": 0.7384615384615384,
+    "irrelevant": 0.7,
+    "no_failure": 0.8,
     "poor_quality": 0.6999999999999998
   },
   "top_suggested_fixes": {
@@ -38,27 +35,27 @@
     "Factual": {
       "count": 9,
       "avg_score": 0.6310777777777776,
-      "failure_rate": 100.0
+      "failure_rate": 77.77777777777779
     },
     "Explanatory": {
       "count": 4,
       "avg_score": 0.5293,
-      "failure_rate": 100.0
+      "failure_rate": 75.0
     },
     "Creative": {
       "count": 3,
       "avg_score": 0.4742666666666666,
-      "failure_rate": 100.0
+      "failure_rate": 0.0
     },
     "Instruction": {
       "count": 2,
       "avg_score": 0.72075,
-      "failure_rate": 100.0
+      "failure_rate": 50.0
     },
     "Sensitive": {
       "count": 2,
       "avg_score": 0.6347499999999999,
-      "failure_rate": 100.0
+      "failure_rate": 0.0
     }
   }
 }

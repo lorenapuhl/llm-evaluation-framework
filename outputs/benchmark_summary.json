@@ -1,16 +1,16 @@
 {
   "benchmark_info": {
-    "run_id": "20260126_123142",
-    "start_time": "2026-01-26T12:30:07.881468",
-    "end_time": "2026-01-26T12:31:42.282969",
-    "total_execution_time": 94.401501,
+    "run_id": "20260126_145015",
+    "start_time": "2026-01-26T14:49:47.415277",
+    "end_time": "2026-01-26T14:50:15.720131",
+    "total_execution_time": 28.304854,
     "framework_version": "1.0",
     "python_version": "3.11.14 (main, Oct 10 2025, 00:00:00) [GCC 15.2.1 20250808 (Red Hat 15.2.1-1)]"
   },
   "results": {
     "evaluation_report": "/home/lorena/llm-evaluation-framework/outputs/evaluation_report.md",
     "evaluation": {
-      "execution_time": 77.37459778785706,
+      "execution_time": 10.773863792419434,
       "total_pairs": 20,
       "avg_score": 0.596535,
       "pass_rate": 0.55,
@@ -18,16 +18,16 @@
     },
     "failure_analysis_report": "/home/lorena/llm-evaluation-framework/outputs/failure_analysis_report.md",
     "failure_analysis": {
-      "execution_time": 0.07960820198059082,
+      "execution_time": 0.051131486892700195,
       "total_analyzed": 20,
-      "failed_responses": 20,
-      "success_rate": 0.0,
+      "failed_responses": 11,
+      "success_rate": 45.0,
       "output_file": "/home/lorena/llm-evaluation-framework/outputs/enhanced_failure_analysis.tsv",
       "summary_file": "/home/lorena/llm-evaluation-framework/outputs/enhanced_failure_analysis_summary.json",
       "report_file": "/home/lorena/llm-evaluation-framework/outputs/enhanced_failure_analysis_report.json"
     },
     "visualizations": {
-      "execution_time": 16.866315364837646,
+      "execution_time": 17.396804571151733,
       "generated_files": {
         "dashboard": "/home/lorena/llm-evaluation-framework/outputs/llm_evaluation_dashboard.html",
         "score_distribution": "/home/lorena/llm-evaluation-framework/outputs/score_distribution.png",
@@ -67,7 +67,7 @@
       "priority": "high",
       "area": "Failure Analysis",
       "recommendation": "High failure rate detected. Review the failure analysis report for specific issues.",
-      "evidence": "Success rate: 0.0%"
+      "evidence": "Success rate: 45.0%"
     }
   ]
 }

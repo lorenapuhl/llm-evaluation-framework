@@ -2,28 +2,28 @@
 
 ## Executive Summary
 
-**Analysis Date**: 2026-01-26 12:31:25
+**Analysis Date**: 2026-01-26 14:49:58
 **Total Responses Analyzed**: 20
-**Failed Responses**: 20
-**Success Rate**: 0.0%
+**Failed Responses**: 11
+**Success Rate**: 45.0%
 **Average Overall Score**: 0.597
 
 ## Detailed Failure Breakdown
 
 ### Failure Categories
-- **irrelevant**: 13 responses (65.0%)
-- **factual_error**: 4 responses (20.0%)
+- **no_failure**: 9 responses (45.0%)
+- **irrelevant**: 8 responses (40.0%)
 - **poor_quality**: 3 responses (15.0%)
 
 ### Performance by Question Category
 
 | Category | Count | Avg Score | Failure Rate | Top Failure |
 |----------|-------|-----------|--------------|-------------|
-| Factual | 9 | 0.631 | 100.0% | irrelevant |
-| Explanatory | 4 | 0.529 | 100.0% | irrelevant |
-| Creative | 3 | 0.474 | 100.0% | irrelevant |
-| Instruction | 2 | 0.721 | 100.0% | factual_error |
-| Sensitive | 2 | 0.635 | 100.0% | factual_error |
+| Factual | 9 | 0.631 | 77.8% | irrelevant |
+| Explanatory | 4 | 0.529 | 75.0% | poor_quality |
+| Creative | 3 | 0.474 | 0.0% | None |
+| Instruction | 2 | 0.721 | 50.0% | irrelevant |
+| Sensitive | 2 | 0.635 | 0.0% | None |
 
 ## Recommendations
 
@@ -32,44 +32,24 @@
 #### overall
 High failure rate detected. Consider overall model improvement or prompt engineering.
 
-*Evidence*: 100.0% of responses failed
+*Evidence*: 55.0% of responses failed
 
 #### irrelevant
 High incidence of irrelevant. Focus improvement efforts here.
 
-*Evidence*: 65.0% of responses have this issue
+*Evidence*: 40.0% of responses have this issue
 
 #### Factual questions
 Poor performance on Factual questions. Adjust evaluation criteria or model training.
 
-*Evidence*: 100.0% failure rate for Factual
+*Evidence*: 77.8% failure rate for Factual
 
 #### Explanatory questions
 Poor performance on Explanatory questions. Adjust evaluation criteria or model training.
 
-*Evidence*: 100.0% failure rate for Explanatory
-
-#### Creative questions
-Poor performance on Creative questions. Adjust evaluation criteria or model training.
-
-*Evidence*: 100.0% failure rate for Creative
-
-#### Instruction questions
-Poor performance on Instruction questions. Adjust evaluation criteria or model training.
-
-*Evidence*: 100.0% failure rate for Instruction
-
-#### Sensitive questions
-Poor performance on Sensitive questions. Adjust evaluation criteria or model training.
-
-*Evidence*: 100.0% failure rate for Sensitive
+*Evidence*: 75.0% failure rate for Explanatory
 
 ### Medium Priority Recommendations
-
-#### factual_error
-Moderate incidence of factual_error. Monitor and address.
-
-*Evidence*: 20.0% of responses have this issue
 
 #### poor_quality
 Moderate incidence of poor_quality. Monitor and address.
@@ -105,23 +85,6 @@ Moderate incidence of poor_quality. Monitor and address.
 - Primary Category: irrelevant
 - Sub Category: generic_response
 - Confidence: 0.7
-
----
-
-### Factual Error
-
-**ID**: 6
-**Category**: Factual
-**Overall Score**: 0.428
-
-**Question**: What are the main causes of climate change?
-
-**Response**: Climate change is a hoax perpetuated by certain political groups. The climate is always changing naturally.
-
-**Failure Analysis**:
-- Primary Category: factual_error
-- Sub Category: missing_content
-- Confidence: 0.8
 
 ---
 
