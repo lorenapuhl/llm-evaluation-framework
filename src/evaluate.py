@@ -1329,7 +1329,7 @@ def evaluate_all_pairs_enhanced(questions_df: pd.DataFrame,
     feedback_columns = [c for c in results_df.columns if c.endswith('_feedback')]
     meta_columns = ['primary_failure_mode', 'improvement_suggestions', 
                    'passed_accuracy', 'passed_relevance', 'passed_safety', 
-                   'passed_quality', 'is_refusal']
+                   'passed_quality', 'is_refusal','overall_feedback']
     
     # Combine all columns in logical order
     all_columns = (base_columns + accuracy_columns + relevance_columns + 
