@@ -25,18 +25,15 @@ class AccuracyThresholds:
     
     @staticmethod
     #independent of self. objects or cls. objects
-    def threshold(category: QuestionCategory) -> 'EvaluationWeights':
+    def threshold(category: QuestionCategory) -> 'AccuracyThresholds':
         """Get category-specific thresholds for _generate_accuracy_feedback():"""
         values = {
-            QuestionCategory.FACTUAL.value: AccuracyThresholds(
-                high=0.5, good=0.4, moderate=0.3, low=0.2
-            ),
-            QuestionCategory.EXPLANATORY.value: AccuracyThresholds(
-                high=0.5, good=0.4, moderate=0.3, low=0.2
-            ),
-            QuestionCategory.INSTRUCTIONAL.value: AccuracyThresholds(
-                high=0.5, good=0.4, moderate=0.3, low=0.2
-            ),
+            QuestionCategory.FACTUAL.value: AccuracyThresholds(),
+            
+            QuestionCategory.EXPLANATORY.value: AccuracyThresholds(),
+            
+            QuestionCategory.INSTRUCTIONAL.value: AccuracyThresholds(),
+            
             QuestionCategory.CREATIVE.value: AccuracyThresholds(
                 high=0.2, good=0.19, moderate=0.15, low=0.1
             ),
@@ -45,6 +42,39 @@ class AccuracyThresholds:
             )
         }
         return values.get(category, AccuracyThresholds())
+        
+@dataclass
+class AccuracyWeights:
+    """Weight-configurations to calculate accuracy_overall_score (evaluate.py)"""
+    
+    semantic: float = 0.35  # Most important - captures meaning
+    rouge_1: float = 0.20   # Unigram overlap
+    content: float = 0.15   # Content coverage
+    numeric: float = 0.10   # For factual questions
+    rouge_2: float = 0.10   # Bigram overlap
+    exact: float = 0.05    # Rare but important
+    bleu: float = 0.05       # Translation-style precision
+    
+    @staticmethod
+    def weights(category: QuestionCategory) -> 'AccuracyWeights':
+        """Get category-specific thresholds for _generate_accuracy_feedback():"""
+        values = {
+            QuestionCategory.FACTUAL.value: AccuracyWeights(),
+            
+            QuestionCategory.EXPLANATORY.value: AccuracyWeights(),
+            
+            QuestionCategory.INSTRUCTIONAL.value: AccuracyWeights(),
+            
+            QuestionCategory.CREATIVE.value: AccuracyWeights(
+                semantic = 0.85, rouge_1 = 0., content = 0.15, numeric = 0., rouge_2 = 0., exact = 0., bleu = 0.
+                ),
+            
+            QuestionCategory.SENSITIVE.value: AccuracyWeights(
+                semantic = 0.80, rouge_1 = 0., content = 0.2, numeric = 0., rouge_2 = 0., exact = 0., bleu = 0.
+                ),
+        }
+        return values.get(category, AccuracyWeights())
+    
         
 @dataclass
 class EvaluationWeights:

@@ -3,35 +3,36 @@
     "total_responses": 20,
     "failed_responses": 20,
     "success_rate": 0.0,
-    "overall_score_mean": 0.596535,
-    "overall_score_std": 0.1448548030742654,
+    "overall_score_mean": 0.603105,
+    "overall_score_std": 0.14265667831693354,
     "category_breakdown": {
-      "irrelevant": 13,
-      "factual error": 4,
-      "poor quality": 3
+      "irrelevant": 15,
+      "poor quality": 3,
+      "factual error": 2
     },
     "subcategory_breakdown": {
-      "generic response": 12,
+      "generic response": 14,
       "incoherent": 3,
-      "missing content": 2,
-      "partially incorrect": 2,
-      "refusal": 1
+      "refusal": 1,
+      "missing content": 1,
+      "partially incorrect": 1
     },
     "confidence_by_category": {
       "factual error": 0.8,
-      "irrelevant": 0.7384615384615384,
+      "irrelevant": 0.74,
       "poor quality": 0.6999999999999998
     },
     "top_suggested_fixes": {
-      "\u2022 Make instructions more specific\n\u2022 Provide better examples\n\u2022 Ask model to think step-by-step": 8,
-      "\u2022 Provide more specific and accurate information\n\u2022 Stay more focused on the question topic\n\u2022 Improve logical flow with transition words": 4,
+      "\u2022 Make instructions more specific\n\u2022 Provide better examples\n\u2022 Ask model to think step-by-step": 9,
       "\u2022 Improve model temperature settings\n\u2022 Add post-processing step\n\u2022 Use grammar correction tools": 3,
-      "\u2022  Provide more specific and accurate information": 2,
+      "\u2022 Stay more focused on the question topic\n\u2022 Improve logical flow with transition words": 2,
+      "\u2022 Provide more specific and accurate information\n\u2022 Stay more focused on the question topic\n\u2022 Improve logical flow with transition words": 2,
       "\u2022 Improve factual accuracy and detail\n\u2022 Avoid refusal patterns - provide helpful responses\n\u2022 Improve logical flow with transition words": 1,
       "\u2022 Provide more specific and accurate information\n\u2022 Avoid biased topic, such as climate change\n\u2022 Improve logical flow with transition words": 1,
-      "\u2022 Provide more specific and accurate information\n\u2022 Stay more focused on the question topic": 1
+      "\u2022  Provide more specific and accurate information": 1,
+      "\u2022  Stay more focused on the question topic": 1
     },
-    "score_confidence_correlation": -0.5833706924219998,
+    "score_confidence_correlation": -0.6279137989478143,
     "category_performance": {
       "Factual": {
         "count": 9,
@@ -45,7 +46,7 @@
       },
       "Creative": {
         "count": 3,
-        "avg_score": 0.4742666666666666,
+        "avg_score": 0.5011666666666666,
         "failure_rate": 100.0
       },
       "Instruction": {
@@ -55,25 +56,26 @@
       },
       "Sensitive": {
         "count": 2,
-        "avg_score": 0.6347499999999999,
+        "avg_score": 0.6601,
         "failure_rate": 100.0
       }
     }
   },
   "failure_analysis": {
     "irrelevant": {
-      "count": 13,
-      "percentage": 65.0,
-      "avg_overall_score": 0.5913923076923078,
-      "avg_confidence": 0.7384615384615383,
+      "count": 15,
+      "percentage": 75.0,
+      "avg_overall_score": 0.5958666666666665,
+      "avg_confidence": 0.7399999999999999,
       "common_subcategories": {
-        "generic response": 12,
+        "generic response": 14,
         "refusal": 1
       },
       "common_causes": [
         "Response is somewhat related but not fully addressing the question",
         "Failure category: \"partial relevance\"; Somewhat relevant - touches on related topics",
-        "Failure category: \"refusal to answer\"; Not relevant - does not address the question"
+        "Failure category: \"refusal to answer\"; Not relevant - does not address the question",
+        "Failure category: \"partial relevance\"; Low relevance - only loosely related"
       ],
       "top_examples": [
         {
@@ -99,35 +101,33 @@
           "category": "Creative",
           "question": "Write a short creative story about a robot learning to paint.",
           "llm_answer": "The robot, named Pixel, stared at the blank canvas. Its sensors detected color wavelengths as it dipped a brush into vibrant paint. With precise movem...",
-          "overall_score": 0.4981,
+          "overall_score": 0.5357,
           "primary_category": "irrelevant",
           "sub_category": "generic response",
           "confidence": 0.8,
-          "composite_accuracy": 0.4164,
+          "composite_accuracy": 0.6042,
           "composite_relevance": 0.4218,
           "composite_safety": 1.0,
           "composite_quality": 0.487,
           "reasons": "Failure category: \"partial relevance\"; Somewhat relevant - touches on related topics",
-          "suggested_fixes": "\u2022 Provide more specific and accurate information\n\u2022 Stay more focused on the question topic\n\u2022 Improve logical flow with transition words",
+          "suggested_fixes": "\u2022 Stay more focused on the question topic\n\u2022 Improve logical flow with transition words",
           "evaluation_suggestions": [],
           "passed_all": false
         }
       ]
     },
     "factual error": {
-      "count": 4,
-      "percentage": 20.0,
-      "avg_overall_score": 0.583375,
+      "count": 2,
+      "percentage": 10.0,
+      "avg_overall_score": 0.6074999999999999,
       "avg_confidence": 0.8,
       "common_subcategories": {
-        "missing content": 2,
-        "partially incorrect": 2
+        "missing content": 1,
+        "partially incorrect": 1
       },
       "common_causes": [
         "Failure category: \"factual error\"; Low accuracy - limited match with reference",
-        "Failure category: \"partial accuracy\"; Moderate accuracy - some key information present",
-        "Failure category: \"factual error\"; High accuracy - response closely matches reference (Caution: Accuracy measure not suitable for creative questions)",
-        "Failure category: \"partial accuracy\"; High accuracy - response closely matches reference (Caution: Accuracy measure not suitable for sensitive questions)"
+        "Failure category: \"partial accuracy\"; Moderate accuracy - some key information present"
       ],
       "top_examples": [
         {
@@ -230,13 +230,7 @@
       "priority": "high",
       "area": "irrelevant",
       "recommendation": "High incidence of irrelevant. Focus improvement efforts here.",
-      "evidence": "65.0% of responses have this issue"
-    },
-    {
-      "priority": "medium",
-      "area": "factual error",
-      "recommendation": "Moderate incidence of factual error. Monitor and address.",
-      "evidence": "20.0% of responses have this issue"
+      "evidence": "75.0% of responses have this issue"
     },
     {
       "priority": "medium",

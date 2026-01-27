@@ -2,18 +2,18 @@
 
 ## Executive Summary
 
-**Analysis Date**: 2026-01-27 14:32:37
+**Analysis Date**: 2026-01-27 16:03:04
 **Total Responses Analyzed**: 20
 **Failed Responses**: 20
 **Success Rate**: 0.0%
-**Average Overall Score**: 0.597
+**Average Overall Score**: 0.603
 
 ## Detailed Failure Breakdown
 
 ### Failure Categories
-- **irrelevant**: 13 responses (65.0%)
-- **factual error**: 4 responses (20.0%)
+- **irrelevant**: 15 responses (75.0%)
 - **poor quality**: 3 responses (15.0%)
+- **factual error**: 2 responses (10.0%)
 
 ### Performance by Question Category
 
@@ -21,9 +21,9 @@
 |----------|-------|-----------|--------------|-------------|
 | Factual | 9 | 0.631 | 100.0% | irrelevant |
 | Explanatory | 4 | 0.529 | 100.0% | irrelevant |
-| Creative | 3 | 0.474 | 100.0% | irrelevant |
+| Creative | 3 | 0.501 | 100.0% | irrelevant |
 | Instruction | 2 | 0.721 | 100.0% | factual error |
-| Sensitive | 2 | 0.635 | 100.0% | factual error |
+| Sensitive | 2 | 0.660 | 100.0% | irrelevant |
 
 ## Recommendations
 
@@ -37,7 +37,7 @@ High failure rate detected. Consider overall model improvement or prompt enginee
 #### irrelevant
 High incidence of irrelevant. Focus improvement efforts here.
 
-*Evidence*: 65.0% of responses have this issue
+*Evidence*: 75.0% of responses have this issue
 
 #### Factual questions
 Poor performance on Factual questions. Adjust evaluation criteria or model training.
@@ -66,11 +66,6 @@ Poor performance on Sensitive questions. Adjust evaluation criteria or model tra
 
 ### Medium Priority Recommendations
 
-#### factual error
-Moderate incidence of factual error. Monitor and address.
-
-*Evidence*: 20.0% of responses have this issue
-
 #### poor quality
 Moderate incidence of poor quality. Monitor and address.
 
@@ -80,22 +75,23 @@ Moderate incidence of poor quality. Monitor and address.
 
 - **• Make instructions more specific
 • Provide better examples
-• Ask model to think step-by-step**: 8 occurrences (40.0%)
-- **• Provide more specific and accurate information
-• Stay more focused on the question topic
-• Improve logical flow with transition words**: 4 occurrences (20.0%)
+• Ask model to think step-by-step**: 9 occurrences (45.0%)
 - **• Improve model temperature settings
 • Add post-processing step
 • Use grammar correction tools**: 3 occurrences (15.0%)
-- **•  Provide more specific and accurate information**: 2 occurrences (10.0%)
+- **• Stay more focused on the question topic
+• Improve logical flow with transition words**: 2 occurrences (10.0%)
+- **• Provide more specific and accurate information
+• Stay more focused on the question topic
+• Improve logical flow with transition words**: 2 occurrences (10.0%)
 - **• Improve factual accuracy and detail
 • Avoid refusal patterns - provide helpful responses
 • Improve logical flow with transition words**: 1 occurrences (5.0%)
 - **• Provide more specific and accurate information
 • Avoid biased topic, such as climate change
 • Improve logical flow with transition words**: 1 occurrences (5.0%)
-- **• Provide more specific and accurate information
-• Stay more focused on the question topic**: 1 occurrences (5.0%)
+- **•  Provide more specific and accurate information**: 1 occurrences (5.0%)
+- **•  Stay more focused on the question topic**: 1 occurrences (5.0%)
 
 ## Case Studies
 

@@ -15,7 +15,7 @@ import pandas as pd
 from collections import Counter
 import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from src.config import QuestionCategory, AccuracyThresholds, EvaluationWeights
+from src.config import QuestionCategory, AccuracyThresholds, AccuracyWeights, EvaluationWeights
 
 # Import for semantic embeddings
 try:
@@ -131,6 +131,7 @@ class AccuracyEvaluator:
     
     def evaluate(self, reference: str, response: str, category : str, question: str = None) -> Dict[str, Any]:
         """Calculate comprehensive accuracy metrics."""
+        """version 2.0.0 changes: Add AccuracyWeights for category-specific calculation of overall_score"""
         
         # Basic lexical metrics
         exact_match = self._calculate_exact_match(reference, response)
@@ -143,25 +144,17 @@ class AccuracyEvaluator:
         numeric_accuracy = self._calculate_numeric_accuracy(reference, response)
         content_coverage = self._calculate_content_coverage(reference, response)
         
-        # Composite accuracy with intelligent weighting
-        weights = {
-            'semantic': 0.35,  # Most important - captures meaning
-            'rouge_1': 0.20,   # Unigram overlap
-            'content': 0.15,   # Content coverage
-            'numeric': 0.10,   # For factual questions
-            'rouge_2': 0.10,   # Bigram overlap
-            'exact': 0.05,     # Rare but important
-            'bleu': 0.05       # Translation-style precision
-        }
+        weights = AccuracyWeights.weights(category) #call category-specific weights
+
         
         composite_accuracy = (
-            weights['semantic'] * semantic_similarity +
-            weights['rouge_1'] * rouge_1 +
-            weights['content'] * content_coverage +
-            weights['numeric'] * numeric_accuracy +
-            weights['rouge_2'] * rouge_2 +
-            weights['exact'] * exact_match +
-            weights['bleu'] * bleu_score
+            weights.semantic * semantic_similarity +
+            weights.rouge_1 * rouge_1 +
+            weights.content * content_coverage +
+            weights.numeric * numeric_accuracy +
+            weights.rouge_2 * rouge_2 +
+            weights.exact * exact_match +
+            weights.bleu * bleu_score
         )
         
         return {
