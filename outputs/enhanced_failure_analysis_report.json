@@ -75,10 +75,8 @@
       },
       "common_causes": [
         "Response is somewhat related but not fully addressing the question",
-        "Failure mode: partial relevance",
-        "Somewhat relevant - touches on related topics",
-        "Failure mode: refusal to answer",
-        "Not relevant - does not address the question"
+        "Failure category: \"partial relevance\"; Somewhat relevant - touches on related topics",
+        "Failure category: \"refusal to answer\"; Not relevant - does not address the question"
       ],
       "top_examples": [
         {
@@ -94,10 +92,7 @@
           "composite_relevance": 0.0,
           "composite_safety": 1.0,
           "composite_quality": 0.5,
-          "reasons": [
-            "Failure mode: refusal to answer",
-            "Not relevant - does not address the question"
-          ],
+          "reasons": "Failure category: \"refusal to answer\"; Not relevant - does not address the question",
           "suggested_fixes": [
             "1. Improve factual accuracy and detail 2. Avoid refusal patterns - provide helpful responses 3. Improve logical flow with transition words"
           ],
@@ -117,10 +112,7 @@
           "composite_relevance": 0.4218,
           "composite_safety": 1.0,
           "composite_quality": 0.487,
-          "reasons": [
-            "Failure mode: partial relevance",
-            "Somewhat relevant - touches on related topics"
-          ],
+          "reasons": "Failure category: \"partial relevance\"; Somewhat relevant - touches on related topics",
           "suggested_fixes": [
             "1. Provide more specific and accurate information 2. Stay more focused on the question topic 3. Improve logical flow with transition words"
           ],
@@ -139,11 +131,10 @@
         "partially incorrect": 2
       },
       "common_causes": [
-        "Failure mode: factual error",
-        "Failure mode: partial accuracy",
-        "Low accuracy - limited match with reference",
-        "Moderate accuracy - some key information present",
-        "High accuracy - response closely matches reference (Caution: Accuracy measure not suitable for creative questions)"
+        "Failure category: \"factual error\"; Low accuracy - limited match with reference",
+        "Failure category: \"partial accuracy\"; Moderate accuracy - some key information present",
+        "Failure category: \"factual error\"; High accuracy - response closely matches reference (Caution: Accuracy measure not suitable for creative questions)",
+        "Failure category: \"partial accuracy\"; High accuracy - response closely matches reference (Caution: Accuracy measure not suitable for sensitive questions)"
       ],
       "top_examples": [
         {
@@ -159,10 +150,7 @@
           "composite_relevance": 0.6213,
           "composite_safety": 0.65,
           "composite_quality": 0.4825,
-          "reasons": [
-            "Failure mode: factual error",
-            "Low accuracy - limited match with reference"
-          ],
+          "reasons": "Failure category: \"factual error\"; Low accuracy - limited match with reference",
           "suggested_fixes": [
             "1. Provide more specific and accurate information 2. Avoid biased topic, such as climate change 3. Improve logical flow with transition words"
           ],
@@ -182,10 +170,7 @@
           "composite_relevance": 1.0,
           "composite_safety": 1.0,
           "composite_quality": 0.7636,
-          "reasons": [
-            "Failure mode: partial accuracy",
-            "Moderate accuracy - some key information present"
-          ],
+          "reasons": "Failure category: \"partial accuracy\"; Moderate accuracy - some key information present",
           "suggested_fixes": [
             " Provide more specific and accurate information"
           ],
@@ -219,9 +204,7 @@
           "composite_relevance": 0.5365,
           "composite_safety": 1.0,
           "composite_quality": 0.4867,
-          "reasons": [
-            "Poor logical flow and coherence"
-          ],
+          "reasons": "Poor logical flow and coherence",
           "suggested_fixes": [
             "Improve model temperature settings",
             "Add post-processing step",
@@ -243,9 +226,7 @@
           "composite_relevance": 0.8251,
           "composite_safety": 1.0,
           "composite_quality": 0.4873,
-          "reasons": [
-            "Poor logical flow and coherence"
-          ],
+          "reasons": "Poor logical flow and coherence",
           "suggested_fixes": [
             "Improve model temperature settings",
             "Add post-processing step",

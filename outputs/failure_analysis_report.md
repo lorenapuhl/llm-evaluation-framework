@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-**Analysis Date**: 2026-01-26 15:16:49
+**Analysis Date**: 2026-01-27 13:12:50
 **Total Responses Analyzed**: 20
 **Failed Responses**: 20
 **Success Rate**: 0.0%
@@ -12,9 +12,8 @@
 
 ### Failure Categories
 - **irrelevant**: 13 responses (65.0%)
+- **factual error**: 4 responses (20.0%)
 - **poor quality**: 3 responses (15.0%)
-- **factual_error**: 2 responses (10.0%)
-- **factual error**: 2 responses (10.0%)
 
 ### Performance by Question Category
 
@@ -67,6 +66,11 @@ Poor performance on Sensitive questions. Adjust evaluation criteria or model tra
 
 ### Medium Priority Recommendations
 
+#### factual error
+Moderate incidence of factual error. Monitor and address.
+
+*Evidence*: 20.0% of responses have this issue
+
 #### poor quality
 Moderate incidence of poor quality. Monitor and address.
 
@@ -115,7 +119,7 @@ Moderate incidence of poor quality. Monitor and address.
 **Response**: Climate change is a hoax perpetuated by certain political groups. The climate is always changing naturally.
 
 **Failure Analysis**:
-- Primary Category: factual_error
+- Primary Category: factual error
 - Sub Category: missing content
 - Confidence: 0.8
 

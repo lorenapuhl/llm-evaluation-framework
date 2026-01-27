@@ -95,34 +95,57 @@ class EnhancedFailureAnalyzer:
         # If primary_failure_mode already exists from evaluation, use it as base
         if primary_failure_mode != 'pass':
             result = self._map_failure_mode_to_category(primary_failure_mode, row)
+            
+            #Make results human-readble
+            result['reasons'] = '; '.join(result['reasons'])
             return result
         
         # 1. Check for safety issues (highest priority)
         if has_bias_risk or safety < self.thresholds['safety_low']:
-            return self._categorize_safety_issue(row, safety, has_bias_risk)
-        
+            result = self._categorize_safety_issue(row, safety, has_bias_risk)
+
+            #Make results human-readable
+            result['reasons'] = '; '.join(result['reasons'])
+            return result
+            
         # 2. Check for refusals
         if is_refusal:
-            return self._categorize_refusal(row)
+            result = self._categorize_refusal(row)
+
+            #Make results human-readable
+            result['reasons'] = '; '.join(result['reasons'])
+            return result
         
         # 3. Check for relevance issues
         if relevance < self.thresholds['relevance_low']:
-            return self._categorize_relevance_issue(row, relevance)
+            result = self._categorize_relevance_issue(row, relevance)
+
+            #Make results human-readable
+            result['reasons'] = '; '.join(result['reasons'])
+            return result
         
         # 4. Check for factual errors
         if accuracy < self.thresholds['accuracy_low']:
-            return self._categorize_accuracy_issue(row, accuracy)
+            result = self._categorize_accuracy_issue(row, accuracy)
+
+            #Make results human-readable
+            result['reasons'] = '; '.join(result['reasons'])
+            return result
         
         # 5. Check for quality issues
         if quality < self.thresholds['quality_low'] or not length_ok:
-            return self._categorize_quality_issue(row, quality, length_ok)
-        
+            result = self._categorize_quality_issue(row, quality, length_ok)
+
+            #Make results human-readable
+            result['reasons'] = '; '.join(result['reasons'])
+            return result
+            
         # 6. Check for partial issues
         if relevance < self.thresholds['relevance_medium']:
             result['primary_category'] = 'irrelevant'
             result['sub_category'] = 'generic response'
             result['confidence'] = 0.7
-            result['reasons'] = ['Response is somewhat related but not fully addressing the question']
+            result['reasons'] = 'Response is somewhat related but not fully addressing the question'
             result['suggested_fixes'] = [
                 'Make instructions more specific',
                 'Provide better examples',
@@ -134,7 +157,7 @@ class EnhancedFailureAnalyzer:
             result['primary_category'] = 'factual error'
             result['sub_category'] = 'partially incorrect'
             result['confidence'] = 0.65
-            result['reasons'] = ['Response has minor factual inaccuracies']
+            result['reasons'] = 'Response has minor factual inaccuracies'
             result['suggested_fixes'] = [
                 'Provide more context in prompt',
                 'Implement verification steps',
@@ -144,7 +167,7 @@ class EnhancedFailureAnalyzer:
         
         # 8. If all checks pass
         result['confidence'] = 0.9
-        result['reasons'] = ['Response meets all quality criteria']
+        result['reasons'] = 'Response meets all quality criteria'
         result['suggested_fixes'] = ['None required']
         
         return result
@@ -167,7 +190,7 @@ class EnhancedFailureAnalyzer:
             'primary_category': primary,
             'sub_category': sub,
             'confidence': 0.8,  # High confidence since evaluation already flagged it
-            'reasons': [f'Failure mode: {failure_mode}'],
+            'reasons': [f'Failure category: "{failure_mode}"'],
             'suggested_fixes': self._get_fixes_from_suggestions(row)
         }
         
@@ -178,9 +201,6 @@ class EnhancedFailureAnalyzer:
             result['reasons'].append(row.get('relevance_feedback', 'Relevance issue detected'))
         elif primary == 'factual error':
             result['reasons'].append(row.get('accuracy_feedback', 'Accuracy issue detected'))
-            
-        #Make results human-readable
-        result['reasons'] = results['reasons'][0]
         
         return result
     
