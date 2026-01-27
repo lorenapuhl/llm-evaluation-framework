@@ -1116,7 +1116,9 @@ class EnhancedLLMEvaluator:
             printable_suggestions = [f" {sug.replace('_', ' ')}" for sug in suggestions][0]
 
         else:
-            printable_suggestions = ' '.join([f"{i+1}. {sug.replace('_', ' ')}" for i, sug in enumerate(suggestions)])   
+            #printable_suggestions = ' '.join([f"{i+1}. {sug.replace('_', ' ')}" for i, sug in enumerate(suggestions)])  
+            printable_suggestions = '\n'.join([f"• {sug.replace('_', ' ')}" for sug in suggestions])
+
    
         # Prepare comprehensive results
         results = {

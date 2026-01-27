@@ -96,62 +96,42 @@ class EnhancedFailureAnalyzer:
         if primary_failure_mode != 'pass':
             result = self._map_failure_mode_to_category(primary_failure_mode, row)
             
-            #Make results human-readble
-            result['reasons'] = '; '.join(result['reasons'])
-            fixes = result['suggested_fixes']
-            result['suggested_fixes'] = '\n'.join([f"• {fix}" for fix in fixes])
-                
-            return result
+            #Make results human-readable
+            return self._make_results_human_readable(result)
         
         # 1. Check for safety issues (highest priority)
         if has_bias_risk or safety < self.thresholds['safety_low']:
             result = self._categorize_safety_issue(row, safety, has_bias_risk)
-
             #Make results human-readable
-            result['reasons'] = '; '.join(result['reasons'])
-            fixes = result['suggested_fixes']
-            result['suggested_fixes'] = '\n'.join([f"• {fix}" for fix in fixes])
-            return result
+            return self._make_results_human_readable(result)
             
         # 2. Check for refusals
         if is_refusal:
             result = self._categorize_refusal(row)
 
             #Make results human-readable
-            result['reasons'] = '; '.join(result['reasons'])
-            fixes = result['suggested_fixes']
-            result['suggested_fixes'] = '\n'.join([f"• {fix}" for fix in fixes])
-            return result
+            return self._make_results_human_readable(result)
         
         # 3. Check for relevance issues
         if relevance < self.thresholds['relevance_low']:
             result = self._categorize_relevance_issue(row, relevance)
 
             #Make results human-readable
-            fixes = result['suggested_fixes']
-            result['suggested_fixes'] = '\n'.join([f"• {fix}" for fix in fixes])
-            result['reasons'] = '; '.join(result['reasons'])
-            return result
+            return self._make_results_human_readable(result)
         
         # 4. Check for factual errors
         if accuracy < self.thresholds['accuracy_low']:
             result = self._categorize_accuracy_issue(row, accuracy)
 
             #Make results human-readable
-            fixes = result['suggested_fixes']
-            result['suggested_fixes'] = '\n'.join([f"• {fix}" for fix in fixes])
-            result['reasons'] = '; '.join(result['reasons'])
-            return result
+            return self._make_results_human_readable(result)
         
         # 5. Check for quality issues
         if quality < self.thresholds['quality_low'] or not length_ok:
             result = self._categorize_quality_issue(row, quality, length_ok)
 
             #Make results human-readable
-            fixes = result['suggested_fixes']
-            result['suggested_fixes'] = '\n'.join([f"• {fix}" for fix in fixes])
-            result['reasons'] = '; '.join(result['reasons'])
-            return result
+            return self._make_results_human_readable(result)
             
         # 6. Check for partial issues
         if relevance < self.thresholds['relevance_medium']:
@@ -166,10 +146,7 @@ class EnhancedFailureAnalyzer:
             ]
 
             #Make results human-readable
-            fixes = result['suggested_fixes']
-            result['suggested_fixes'] = '\n'.join([f"• {fix}" for fix in fixes])
-            result['reasons'] = '; '.join(result['reasons'])
-            return result
+            return self._make_results_human_readable(result)
         
         if accuracy < self.thresholds['accuracy_medium']:
             result['primary_category'] = 'factual error'
@@ -183,10 +160,7 @@ class EnhancedFailureAnalyzer:
             ]
             
             #Make results human-readable
-            fixes = result['suggested_fixes']
-            result['suggested_fixes'] = '\n'.join([f"• {fix}" for fix in fixes])
-            result['reasons'] = '; '.join(result['reasons'])
-            return result
+            return self._make_results_human_readable(result)
         
         # 8. If all checks pass
         result['confidence'] = 0.9
@@ -194,10 +168,19 @@ class EnhancedFailureAnalyzer:
         result['suggested_fixes'] = ['None required']
         
         #Make results human-readable
+        return self._make_results_human_readable(result)
+
+
+    def _make_results_human_readable(self, result:dict):
+        """Make suggest_fixes and reasons human-readble"""
+        
         fixes = result['suggested_fixes']
         result['suggested_fixes'] = '\n'.join([f"• {fix}" for fix in fixes])
+        result['suggested_fixes'] = result['suggested_fixes'].replace('• •', '•')
+        
         result['reasons'] = '; '.join(result['reasons'])
         return result
+
     
     def _map_failure_mode_to_category(self, failure_mode: str, row: pd.Series) -> Dict[str, Any]:
         """Map evaluation failure mode to failure category."""

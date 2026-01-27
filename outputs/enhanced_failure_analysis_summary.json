@@ -23,12 +23,12 @@
   },
   "top_suggested_fixes": {
     "\u2022 Make instructions more specific\n\u2022 Provide better examples\n\u2022 Ask model to think step-by-step": 8,
-    "\u2022 1. Provide more specific and accurate information 2. Stay more focused on the question topic 3. Improve logical flow with transition words": 4,
+    "\u2022 Provide more specific and accurate information\n\u2022 Stay more focused on the question topic\n\u2022 Improve logical flow with transition words": 4,
     "\u2022 Improve model temperature settings\n\u2022 Add post-processing step\n\u2022 Use grammar correction tools": 3,
     "\u2022  Provide more specific and accurate information": 2,
-    "\u2022 1. Improve factual accuracy and detail 2. Avoid refusal patterns - provide helpful responses 3. Improve logical flow with transition words": 1,
-    "\u2022 1. Provide more specific and accurate information 2. Avoid biased topic, such as climate change 3. Improve logical flow with transition words": 1,
-    "\u2022 1. Provide more specific and accurate information 2. Stay more focused on the question topic": 1
+    "\u2022 Improve factual accuracy and detail\n\u2022 Avoid refusal patterns - provide helpful responses\n\u2022 Improve logical flow with transition words": 1,
+    "\u2022 Provide more specific and accurate information\n\u2022 Avoid biased topic, such as climate change\n\u2022 Improve logical flow with transition words": 1,
+    "\u2022 Provide more specific and accurate information\n\u2022 Stay more focused on the question topic": 1
   },
   "score_confidence_correlation": -0.5833706924219998,
   "category_performance": {
