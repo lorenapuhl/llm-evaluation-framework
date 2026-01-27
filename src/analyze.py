@@ -178,6 +178,9 @@ class EnhancedFailureAnalyzer:
             result['reasons'].append(row.get('relevance_feedback', 'Relevance issue detected'))
         elif primary == 'factual error':
             result['reasons'].append(row.get('accuracy_feedback', 'Accuracy issue detected'))
+            
+        #Make results human-readable
+        result['reasons'] = results['reasons'][0]
         
         return result
     
