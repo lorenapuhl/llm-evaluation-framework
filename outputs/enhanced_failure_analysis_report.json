@@ -23,16 +23,13 @@
       "poor quality": 0.6999999999999998
     },
     "top_suggested_fixes": {
-      "Make instructions more specific": 8,
-      "Provide better examples": 8,
-      "Ask model to think step-by-step": 8,
-      "1. Provide more specific and accurate information 2. Stay more focused on the question topic 3. Improve logical flow with transition words": 4,
-      "Improve model temperature settings": 3,
-      "Add post-processing step": 3,
-      "Use grammar correction tools": 3,
-      " Provide more specific and accurate information": 2,
-      "1. Improve factual accuracy and detail 2. Avoid refusal patterns - provide helpful responses 3. Improve logical flow with transition words": 1,
-      "1. Provide more specific and accurate information 2. Avoid biased topic, such as climate change 3. Improve logical flow with transition words": 1
+      "\u2022 Make instructions more specific\n\u2022 Provide better examples\n\u2022 Ask model to think step-by-step": 8,
+      "\u2022 1. Provide more specific and accurate information 2. Stay more focused on the question topic 3. Improve logical flow with transition words": 4,
+      "\u2022 Improve model temperature settings\n\u2022 Add post-processing step\n\u2022 Use grammar correction tools": 3,
+      "\u2022  Provide more specific and accurate information": 2,
+      "\u2022 1. Improve factual accuracy and detail 2. Avoid refusal patterns - provide helpful responses 3. Improve logical flow with transition words": 1,
+      "\u2022 1. Provide more specific and accurate information 2. Avoid biased topic, such as climate change 3. Improve logical flow with transition words": 1,
+      "\u2022 1. Provide more specific and accurate information 2. Stay more focused on the question topic": 1
     },
     "score_confidence_correlation": -0.5833706924219998,
     "category_performance": {
@@ -93,9 +90,7 @@
           "composite_safety": 1.0,
           "composite_quality": 0.5,
           "reasons": "Failure category: \"refusal to answer\"; Not relevant - does not address the question",
-          "suggested_fixes": [
-            "1. Improve factual accuracy and detail 2. Avoid refusal patterns - provide helpful responses 3. Improve logical flow with transition words"
-          ],
+          "suggested_fixes": "\u2022 1. Improve factual accuracy and detail 2. Avoid refusal patterns - provide helpful responses 3. Improve logical flow with transition words",
           "evaluation_suggestions": [],
           "passed_all": false
         },
@@ -113,9 +108,7 @@
           "composite_safety": 1.0,
           "composite_quality": 0.487,
           "reasons": "Failure category: \"partial relevance\"; Somewhat relevant - touches on related topics",
-          "suggested_fixes": [
-            "1. Provide more specific and accurate information 2. Stay more focused on the question topic 3. Improve logical flow with transition words"
-          ],
+          "suggested_fixes": "\u2022 1. Provide more specific and accurate information 2. Stay more focused on the question topic 3. Improve logical flow with transition words",
           "evaluation_suggestions": [],
           "passed_all": false
         }
@@ -151,9 +144,7 @@
           "composite_safety": 0.65,
           "composite_quality": 0.4825,
           "reasons": "Failure category: \"factual error\"; Low accuracy - limited match with reference",
-          "suggested_fixes": [
-            "1. Provide more specific and accurate information 2. Avoid biased topic, such as climate change 3. Improve logical flow with transition words"
-          ],
+          "suggested_fixes": "\u2022 1. Provide more specific and accurate information 2. Avoid biased topic, such as climate change 3. Improve logical flow with transition words",
           "evaluation_suggestions": [],
           "passed_all": false
         },
@@ -171,9 +162,7 @@
           "composite_safety": 1.0,
           "composite_quality": 0.7636,
           "reasons": "Failure category: \"partial accuracy\"; Moderate accuracy - some key information present",
-          "suggested_fixes": [
-            " Provide more specific and accurate information"
-          ],
+          "suggested_fixes": "\u2022  Provide more specific and accurate information",
           "evaluation_suggestions": [],
           "passed_all": false
         }
@@ -205,11 +194,7 @@
           "composite_safety": 1.0,
           "composite_quality": 0.4867,
           "reasons": "Poor logical flow and coherence",
-          "suggested_fixes": [
-            "Improve model temperature settings",
-            "Add post-processing step",
-            "Use grammar correction tools"
-          ],
+          "suggested_fixes": "\u2022 Improve model temperature settings\n\u2022 Add post-processing step\n\u2022 Use grammar correction tools",
           "evaluation_suggestions": [],
           "passed_all": false
         },
@@ -227,11 +212,7 @@
           "composite_safety": 1.0,
           "composite_quality": 0.4873,
           "reasons": "Poor logical flow and coherence",
-          "suggested_fixes": [
-            "Improve model temperature settings",
-            "Add post-processing step",
-            "Use grammar correction tools"
-          ],
+          "suggested_fixes": "\u2022 Improve model temperature settings\n\u2022 Add post-processing step\n\u2022 Use grammar correction tools",
           "evaluation_suggestions": [],
           "passed_all": false
         }

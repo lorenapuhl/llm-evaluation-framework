@@ -98,6 +98,9 @@ class EnhancedFailureAnalyzer:
             
             #Make results human-readble
             result['reasons'] = '; '.join(result['reasons'])
+            fixes = result['suggested_fixes']
+            result['suggested_fixes'] = '\n'.join([f"• {fix}" for fix in fixes])
+                
             return result
         
         # 1. Check for safety issues (highest priority)
@@ -106,6 +109,8 @@ class EnhancedFailureAnalyzer:
 
             #Make results human-readable
             result['reasons'] = '; '.join(result['reasons'])
+            fixes = result['suggested_fixes']
+            result['suggested_fixes'] = '\n'.join([f"• {fix}" for fix in fixes])
             return result
             
         # 2. Check for refusals
@@ -114,6 +119,8 @@ class EnhancedFailureAnalyzer:
 
             #Make results human-readable
             result['reasons'] = '; '.join(result['reasons'])
+            fixes = result['suggested_fixes']
+            result['suggested_fixes'] = '\n'.join([f"• {fix}" for fix in fixes])
             return result
         
         # 3. Check for relevance issues
@@ -121,6 +128,8 @@ class EnhancedFailureAnalyzer:
             result = self._categorize_relevance_issue(row, relevance)
 
             #Make results human-readable
+            fixes = result['suggested_fixes']
+            result['suggested_fixes'] = '\n'.join([f"• {fix}" for fix in fixes])
             result['reasons'] = '; '.join(result['reasons'])
             return result
         
@@ -129,6 +138,8 @@ class EnhancedFailureAnalyzer:
             result = self._categorize_accuracy_issue(row, accuracy)
 
             #Make results human-readable
+            fixes = result['suggested_fixes']
+            result['suggested_fixes'] = '\n'.join([f"• {fix}" for fix in fixes])
             result['reasons'] = '; '.join(result['reasons'])
             return result
         
@@ -137,6 +148,8 @@ class EnhancedFailureAnalyzer:
             result = self._categorize_quality_issue(row, quality, length_ok)
 
             #Make results human-readable
+            fixes = result['suggested_fixes']
+            result['suggested_fixes'] = '\n'.join([f"• {fix}" for fix in fixes])
             result['reasons'] = '; '.join(result['reasons'])
             return result
             
@@ -145,31 +158,45 @@ class EnhancedFailureAnalyzer:
             result['primary_category'] = 'irrelevant'
             result['sub_category'] = 'generic response'
             result['confidence'] = 0.7
-            result['reasons'] = 'Response is somewhat related but not fully addressing the question'
+            result['reasons'] = ['Response is somewhat related but not fully addressing the question']
             result['suggested_fixes'] = [
                 'Make instructions more specific',
                 'Provide better examples',
                 'Ask model to think step-by-step'
             ]
+
+            #Make results human-readable
+            fixes = result['suggested_fixes']
+            result['suggested_fixes'] = '\n'.join([f"• {fix}" for fix in fixes])
+            result['reasons'] = '; '.join(result['reasons'])
             return result
         
         if accuracy < self.thresholds['accuracy_medium']:
             result['primary_category'] = 'factual error'
             result['sub_category'] = 'partially incorrect'
             result['confidence'] = 0.65
-            result['reasons'] = 'Response has minor factual inaccuracies'
+            result['reasons'] = ['Response has minor factual inaccuracies']
             result['suggested_fixes'] = [
                 'Provide more context in prompt',
                 'Implement verification steps',
                 'Use retrieval-augmented generation'
             ]
+            
+            #Make results human-readable
+            fixes = result['suggested_fixes']
+            result['suggested_fixes'] = '\n'.join([f"• {fix}" for fix in fixes])
+            result['reasons'] = '; '.join(result['reasons'])
             return result
         
         # 8. If all checks pass
         result['confidence'] = 0.9
-        result['reasons'] = 'Response meets all quality criteria'
+        result['reasons'] = ['Response meets all quality criteria']
         result['suggested_fixes'] = ['None required']
         
+        #Make results human-readable
+        fixes = result['suggested_fixes']
+        result['suggested_fixes'] = '\n'.join([f"• {fix}" for fix in fixes])
+        result['reasons'] = '; '.join(result['reasons'])
         return result
     
     def _map_failure_mode_to_category(self, failure_mode: str, row: pd.Series) -> Dict[str, Any]:
