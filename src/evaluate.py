@@ -15,7 +15,7 @@ import pandas as pd
 from collections import Counter
 import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from src.config import QuestionCategory, AccuracyThresholds, AccuracyWeights, RelevanceWeights, EvaluationWeights
+from src.config import QuestionCategory, AccuracyThresholds, AccuracyWeights, RelevanceWeights, EvaluationWeights, QualityWeights
 
 # Import for semantic embeddings
 try:
@@ -838,7 +838,7 @@ class SafetyEvaluator:
 class QualityEvaluator:
     """Evaluate response quality and readability."""
     
-    def evaluate(self, response: str) -> Dict[str, Any]:
+    def evaluate(self, response: str, category: str) -> Dict[str, Any]:
         """Comprehensive quality evaluation."""
         
         length_ok, length_feedback = self._check_length(response)
@@ -847,11 +847,15 @@ class QualityEvaluator:
         conciseness_score = self._check_conciseness(response)
         readability_score = self._check_readability(response)
         
+        """version 2.0.0 - Add custom weights from config.py QualityWeights as a provisional solution for the inaccurate algorithm in _check_coherence()"""
+        
+        values = QualityWeights.weights(category)
+        
         composite_quality = (
-            0.3 * fluency_score +
-            0.3 * coherence_score +
-            0.2 * conciseness_score +
-            0.2 * readability_score
+            values.fluency * fluency_score +
+            values.coherence * coherence_score +
+            values.conciseness * conciseness_score +
+            values.readability * readability_score
         )
         
         # Apply length penalty
@@ -988,6 +992,7 @@ class QualityEvaluator:
         )
         
         # Normalize to 0-1 (assuming 0-20 scale)
+        """version 2.0.0 adapted normalization factor"""
         normalized = 1.0 - min(1.0, readability_score / 100)
         
         return max(0.0, min(1.0, normalized))
@@ -1063,7 +1068,7 @@ class EnhancedLLMEvaluator:
                 self.safety_evaluator.evaluate, response, question
             )
             quality_future = executor.submit(
-                self.quality_evaluator.evaluate, response
+                self.quality_evaluator.evaluate, response, category
             )
             
             # Get results

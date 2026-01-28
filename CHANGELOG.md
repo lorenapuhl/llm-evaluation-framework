@@ -2,6 +2,16 @@
 
 ## [2.0.0] - 2026-01-28
 ### Changed
+- **src.config.py: QualityWeights**: Added custom-weights when calulating the `quality_overall_score`
+- **src.evaluate.py: QualityEvaluator._evaluate()**: Added `QualityWeights` in `config.py` as a provisional solution for the inaccurate algorithm in `QualityEvaluator._check_coherence()`. Weights for `coherence_score` are set to zero.
+- **Reason**: Vocabulary in `QualityEvaluator._check_coherence()` is not diverse enough for an apropriate analysis
+- **Analysis**: See notebook `2026-01-20_numerical_analysis.ipynb`, section 3
+- **Impact**: Results of `quality_overall_score` are not impacted by the insufficiently complex algorithm in `QualityEvaluator._check_coherence()`
+- **commit**: f774b36
+
+
+## [2.0.0] - 2026-01-28
+### Changed
 - **src.evaluate.py: QualityEvaluator._check_readability()**: - Change normalization-factor to `normalized = 1.0 - min(1.0, readability_score / 100)`
 - **Reason**: Normalization factors were not adapted to the typical length and type of questions/llm-answers
 - **Analysis**: See notebook `2026-01-20_numerical_analysis.ipynb`, section 3

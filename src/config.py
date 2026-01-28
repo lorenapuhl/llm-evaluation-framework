@@ -103,6 +103,31 @@ class RelevanceWeights:
         return values.get(category, AccuracyWeights())
         
 @dataclass
+class QualityWeights:
+    """Weight-configurations to calculate quality_overall_score (evaluate.py)"""
+    
+    fluency: float = 0.4          # fluency_score
+    coherence: float = 0.0        # coherence_score - temporarily set to zero, until the algorithm to calculate toe coherece_score is improved
+    conciseness: float = 0.3      # conciseness_score
+    readability: float = 0.3      # readability_score
+    
+    @staticmethod
+    def weights(category: QuestionCategory) -> 'QualityWeights':
+        """Get category-specific weights for RelevanceEvaluator._evaluate():"""
+        values = {
+            QuestionCategory.FACTUAL.value: QualityWeights(),
+            
+            QuestionCategory.EXPLANATORY.value: QualityWeights(),
+            
+            QuestionCategory.INSTRUCTIONAL.value: QualityWeights(),
+            
+            QuestionCategory.CREATIVE.value: QualityWeights(),
+            
+            QuestionCategory.SENSITIVE.value: QualityWeights(),
+        }
+        return values.get(category, QualityWeights())
+        
+@dataclass
 class EvaluationWeights:
     """Configuration for weighting different metrics by category."""
     accuracy_weight: float = 0.4

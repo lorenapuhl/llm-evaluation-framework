@@ -2,63 +2,59 @@
   "total_responses": 20,
   "failed_responses": 20,
   "success_rate": 0.0,
-  "overall_score_mean": 0.625625,
-  "overall_score_std": 0.1116602076555664,
+  "overall_score_mean": 0.6553850000000001,
+  "overall_score_std": 0.09533467516844898,
   "category_breakdown": {
-    "irrelevant": 11,
-    "poor quality": 5,
-    "factual error": 3,
+    "irrelevant": 15,
+    "factual error": 4,
     "unsafe": 1
   },
   "subcategory_breakdown": {
-    "generic response": 10,
-    "incoherent": 5,
-    "partially incorrect": 2,
+    "generic response": 14,
+    "partially incorrect": 3,
     "refusal": 1,
     "missing content": 1,
     "unbalanced": 1
   },
   "confidence_by_category": {
-    "factual error": 0.75,
-    "irrelevant": 0.7272727272727273,
-    "poor quality": 0.7,
+    "factual error": 0.7250000000000001,
+    "irrelevant": 0.72,
     "unsafe": 0.9
   },
   "top_suggested_fixes": {
-    "\u2022 Make instructions more specific\n\u2022 Provide better examples\n\u2022 Ask model to think step-by-step": 8,
-    "\u2022 Improve model temperature settings\n\u2022 Add post-processing step\n\u2022 Use grammar correction tools": 5,
-    "\u2022 Provide more specific and accurate information\n\u2022 Stay more focused on the question topic\n\u2022 Improve logical flow with transition words": 2,
-    "\u2022 Improve factual accuracy and detail\n\u2022 Improve logical flow with transition words": 1,
-    "\u2022 Provide more specific and accurate information\n\u2022 Avoid biased topic, such as climate change\n\u2022 Improve logical flow with transition words": 1,
+    "\u2022 Make instructions more specific\n\u2022 Provide better examples\n\u2022 Ask model to think step-by-step": 12,
+    "\u2022 Provide more specific and accurate information\n\u2022 Stay more focused on the question topic": 2,
+    "\u2022 Provide more context in prompt\n\u2022 Implement verification steps\n\u2022 Use retrieval-augmented generation": 2,
+    "\u2022  Improve factual accuracy and detail": 1,
+    "\u2022 Provide more specific and accurate information\n\u2022 Avoid biased topic, such as climate change": 1,
     "\u2022  Provide more specific and accurate information": 1,
-    "\u2022 Add safety guidelines to prompt\n\u2022 Implement content filtering\n\u2022 Fine-tune model on safety data": 1,
-    "\u2022 Provide more context in prompt\n\u2022 Implement verification steps\n\u2022 Use retrieval-augmented generation": 1
+    "\u2022 Add safety guidelines to prompt\n\u2022 Implement content filtering\n\u2022 Fine-tune model on safety data": 1
   },
-  "score_confidence_correlation": -0.4282907289978043,
+  "score_confidence_correlation": -0.4851722878390971,
   "category_performance": {
     "Factual": {
       "count": 9,
-      "avg_score": 0.6310777777777776,
+      "avg_score": 0.6469666666666666,
       "failure_rate": 100.0
     },
     "Explanatory": {
       "count": 4,
-      "avg_score": 0.590775,
+      "avg_score": 0.616425,
       "failure_rate": 100.0
     },
     "Creative": {
       "count": 3,
-      "avg_score": 0.5354666666666666,
+      "avg_score": 0.6416000000000001,
       "failure_rate": 100.0
     },
     "Instruction": {
       "count": 2,
-      "avg_score": 0.72075,
+      "avg_score": 0.73715,
       "failure_rate": 100.0
     },
     "Sensitive": {
       "count": 2,
-      "avg_score": 0.7109000000000001,
+      "avg_score": 0.7101,
       "failure_rate": 100.0
     }
   }
