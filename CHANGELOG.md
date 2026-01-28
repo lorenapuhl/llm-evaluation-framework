@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## [2.0.0] - 2026-01-28
+### Changed
+- **src.evaluate.py: QualityEvaluator._check_readability()**: - Change normalization-factor to `normalized = 1.0 - min(1.0, readability_score / 100)`
+- **Reason**: Normalization factors were not adapted to the typical length and type of questions/llm-answers
+- **Analysis**: See notebook `2026-01-20_numerical_analysis.ipynb`, section 3
+- **Impact**: readability_scores are now more representative of the readability of llm-answers
+- **commit**: f774b36
+
 
 ## [2.0.0] - 2026-01-28
 ### Changed
@@ -8,7 +16,7 @@
 - **Reason**: Accuracy measures not appropriate for creative and sensitive questions
 - **Analysis**: See notebook `2026-01-20_numerical_analysis.ipynb`, section 2
 - **Impact**: Overall_scores for creative and questions are better fine-tuned to their category-specific nature
-- **commit**: e3d9e44
+- **commit**: f774b36
 
 
 ## [2.0.0] - 2026-01-27

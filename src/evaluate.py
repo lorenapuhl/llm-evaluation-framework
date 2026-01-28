@@ -988,7 +988,7 @@ class QualityEvaluator:
         )
         
         # Normalize to 0-1 (assuming 0-20 scale)
-        normalized = 1.0 - min(1.0, readability_score / 20)
+        normalized = 1.0 - min(1.0, readability_score / 100)
         
         return max(0.0, min(1.0, normalized))
     
