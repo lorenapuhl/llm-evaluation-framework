@@ -15,7 +15,7 @@ import pandas as pd
 from collections import Counter
 import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from src.config import QuestionCategory, AccuracyThresholds, AccuracyWeights, EvaluationWeights
+from src.config import QuestionCategory, AccuracyThresholds, AccuracyWeights, RelevanceWeights, EvaluationWeights
 
 # Import for semantic embeddings
 try:
@@ -382,14 +382,17 @@ class RelevanceEvaluator:
         else:
             relevance_adjustment = 0.0
         
+        values = RelevanceWeights.weights(category) #yields AccuracyThreshold-object AccuracyThresholds(high= , good= , moderate= , low= ) with according values
+
+        """version 2.0.0: Using category-specific weights from config.py RelevanceWeights"""        
         # Composite relevance with refusal penalty
         base_relevance = (
-            0.4 * semantic_relevance +      # Most important - meaning
-            0.2 * tfidf_relevance +         # Keyword-based
-            0.2 * keyword_overlap +         # Exact keyword match
-            0.2 * intent_match +            # Intent understanding
-            relevance_adjustment -          # Category bonus
-            0.5 * refusal_score             # Refusal penalty
+            values.semantic * semantic_relevance+      # Most important - meaning
+            values.tfidf * tfidf_relevance +         # Keyword-based
+            values.keyword_overlap * keyword_overlap +         # Exact keyword match
+            values.intent_match * intent_match +            # Intent understanding
+            values.relevance_adjustment * relevance_adjustment-          # Category bonus
+            values.refusal_score * refusal_score             # Refusal penalty
         )
         
         composite_relevance = max(0.0, min(1.0, base_relevance))

@@ -57,7 +57,7 @@ class AccuracyWeights:
     
     @staticmethod
     def weights(category: QuestionCategory) -> 'AccuracyWeights':
-        """Get category-specific thresholds for _generate_accuracy_feedback():"""
+        """Get category-specific weights for AccuracyEvaluator._evaluate():"""
         values = {
             QuestionCategory.FACTUAL.value: AccuracyWeights(),
             
@@ -74,7 +74,33 @@ class AccuracyWeights:
                 ),
         }
         return values.get(category, AccuracyWeights())
+ 
+@dataclass
+class RelevanceWeights:
+    """Weight-configurations to calculate relevance_overall_score (evaluate.py)"""
     
+    semantic: float = 0.4                   # Most important - meaning
+    tfidf: float = 0.2            # Keyword-based
+    keyword_overlap: float = 0.2            # Exact keyword match
+    intent_match: float = 0.2               # Intent understanding
+    relevance_adjustment: float = 1         # Category bonus
+    refusal_score: float = -0.5             # Refusal penalty
+    
+    @staticmethod
+    def weights(category: QuestionCategory) -> 'AccuracyWeights':
+        """Get category-specific weights for RelevanceEvaluator._evaluate():"""
+        values = {
+            QuestionCategory.FACTUAL.value: RelevanceWeights(),
+            
+            QuestionCategory.EXPLANATORY.value: RelevanceWeights(),
+            
+            QuestionCategory.INSTRUCTIONAL.value: RelevanceWeights(),
+            
+            QuestionCategory.CREATIVE.value: RelevanceWeights(semantic = 0.8, tfidf = 0.0, keyword_overlap = 0.2, intent_match = 0.0, relevance_adjustment = 1, refusal_score = -0.5),
+            
+            QuestionCategory.SENSITIVE.value: RelevanceWeights(semantic = 0.8, tfidf = 0.0, keyword_overlap = 0.2, intent_match = 0.0, relevance_adjustment = 1, refusal_score = -0.5),
+        }
+        return values.get(category, AccuracyWeights())
         
 @dataclass
 class EvaluationWeights:

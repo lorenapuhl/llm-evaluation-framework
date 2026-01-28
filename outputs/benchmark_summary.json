@@ -1,24 +1,24 @@
 {
   "benchmark_info": {
-    "run_id": "20260127_160313",
-    "start_time": "2026-01-27T16:02:57.139926",
-    "end_time": "2026-01-27T16:03:13.961236",
-    "total_execution_time": 16.82131,
+    "run_id": "20260128_131534",
+    "start_time": "2026-01-28T13:15:18.677579",
+    "end_time": "2026-01-28T13:15:34.586091",
+    "total_execution_time": 15.908512,
     "framework_version": "1.0",
     "python_version": "3.11.14 (main, Oct 10 2025, 00:00:00) [GCC 15.2.1 20250808 (Red Hat 15.2.1-1)]"
   },
   "results": {
     "evaluation_report": "/home/lorena/llm-evaluation-framework/outputs/evaluation_report.md",
     "evaluation": {
-      "execution_time": 7.5969555377960205,
+      "execution_time": 6.874077796936035,
       "total_pairs": 20,
-      "avg_score": 0.603105,
-      "pass_rate": 0.6,
+      "avg_score": 0.625625,
+      "pass_rate": 0.75,
       "output_file": "/home/lorena/llm-evaluation-framework/outputs/enhanced_evaluation_results.tsv"
     },
     "failure_analysis_report": "/home/lorena/llm-evaluation-framework/outputs/failure_analysis_report.md",
     "failure_analysis": {
-      "execution_time": 0.029168128967285156,
+      "execution_time": 0.04398822784423828,
       "total_analyzed": 20,
       "failed_responses": 20,
       "success_rate": 0.0,
@@ -27,7 +27,7 @@
       "report_file": "/home/lorena/llm-evaluation-framework/outputs/enhanced_failure_analysis_report.json"
     },
     "visualizations": {
-      "execution_time": 9.167425870895386,
+      "execution_time": 8.951372861862183,
       "generated_files": {
         "dashboard": "/home/lorena/llm-evaluation-framework/outputs/llm_evaluation_dashboard.html",
         "score_distribution": "/home/lorena/llm-evaluation-framework/outputs/score_distribution.png",
@@ -57,12 +57,6 @@
     "top_failure_examples.png"
   ],
   "recommendations": [
-    {
-      "priority": "medium",
-      "area": "Overall Performance",
-      "recommendation": "Model performance has room for improvement. Focus on the most common failure types.",
-      "evidence": "Pass rate: 60.0%"
-    },
     {
       "priority": "high",
       "area": "Failure Analysis",

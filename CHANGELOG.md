@@ -1,14 +1,24 @@
 # CHANGELOG.md
 
 
+## [2.0.0] - 2026-01-28
+### Changed
+- **src.config.py: RelevanceWeights**: Added special handling for Creative/Sensitive questions and question-category-specific weights when calulating the relevance_overall_score
+- **src.evaluate.py: RelelvanceEvaluator._evaluate()**: Function now uses category-specifc weights from RelvanceWeights.values(category)
+- **Reason**: Accuracy measures not appropriate for creative and sensitive questions
+- **Analysis**: See notebook `2026-01-20_numerical_analysis.ipynb`, section 2
+- **Impact**: Overall_scores for creative and questions are better fine-tuned to their category-specific nature
+- **commit**: e3d9e44
+
+
 ## [2.0.0] - 2026-01-27
 ### Changed
-- **src.config.py: AccuracyWeights**: Added special handling for Creative/Sensitive questions and question-category-specific tweights when calulatin the accuracy_overall_score
-- **src.evaluate.py: AccuracyEvaluator._evaluate()**: Function now uses category-specifc weights.
+- **src.config.py: AccuracyWeights**: Added special handling for Creative/Sensitive questions and question-category-specific weights when calulating the accuracy_overall_score
+- **src.evaluate.py: AccuracyEvaluator._evaluate()**: Function now uses category-specifc weights from AccuracyWeights-values(category)
 - **Reason**: Accuracy measures not appropriate for creative and sensitive questions
 - **Analysis**: See notebook `2026-01-20_numerical_analysis.ipynb`, section 1
 - **Impact**: Overall_scores for creative and questions are better fine-tuned to their category-specific nature
-- **commit**: 76a1da5
+- **commit**: e3d9e44
 
 ## [2.0.0] - 2026-01-27
 ### Changed
