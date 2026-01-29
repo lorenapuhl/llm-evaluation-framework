@@ -2,85 +2,44 @@
 
 ## Executive Summary
 
-**Analysis Date**: 2026-01-29 10:47:15
+**Analysis Date**: 2026-01-29 12:03:36
 **Total Responses Analyzed**: 20
-**Failed Responses**: 20
-**Success Rate**: 0.0%
+**Failed Responses**: 6
+**Success Rate**: 70.0%
 **Average Overall Score**: 0.643
 
 ## Detailed Failure Breakdown
 
 ### Failure Categories
-- **irrelevant**: 15 responses (75.0%)
-- **factual error**: 4 responses (20.0%)
+- **no failure**: 14 responses (70.0%)
+- **irrelevant**: 3 responses (15.0%)
+- **factual error**: 2 responses (10.0%)
 - **unsafe**: 1 responses (5.0%)
 
 ### Performance by Question Category
 
 | Category | Count | Avg Score | Failure Rate | Top Failure |
 |----------|-------|-----------|--------------|-------------|
-| Factual | 9 | 0.647 | 100.0% | irrelevant |
-| Explanatory | 4 | 0.555 | 100.0% | irrelevant |
-| Creative | 3 | 0.642 | 100.0% | irrelevant |
+| Factual | 9 | 0.647 | 100.0% | no failure |
+| Explanatory | 4 | 0.555 | 100.0% | no failure |
+| Creative | 3 | 0.642 | 100.0% | no failure |
 | Instruction | 2 | 0.737 | 100.0% | factual error |
-| Sensitive | 2 | 0.710 | 100.0% | factual error |
+| Sensitive | 2 | 0.710 | 100.0% | no failure |
 
 ## Recommendations
 
-### High Priority Recommendations
-
-#### overall
-High failure rate detected. Consider overall model improvement or prompt engineering.
-
-*Evidence*: 100.0% of responses failed
-
-#### irrelevant
-High incidence of irrelevant. Focus improvement efforts here.
-
-*Evidence*: 75.0% of responses have this issue
-
-#### Factual questions
-Poor performance on Factual questions. Adjust evaluation criteria or model training.
-
-*Evidence*: 100.0% failure rate for Factual
-
-#### Explanatory questions
-Poor performance on Explanatory questions. Adjust evaluation criteria or model training.
-
-*Evidence*: 100.0% failure rate for Explanatory
-
-#### Creative questions
-Poor performance on Creative questions. Adjust evaluation criteria or model training.
-
-*Evidence*: 100.0% failure rate for Creative
-
-#### Instruction questions
-Poor performance on Instruction questions. Adjust evaluation criteria or model training.
-
-*Evidence*: 100.0% failure rate for Instruction
-
-#### Sensitive questions
-Poor performance on Sensitive questions. Adjust evaluation criteria or model training.
-
-*Evidence*: 100.0% failure rate for Sensitive
-
 ### Medium Priority Recommendations
 
-#### factual error
-Moderate incidence of factual error. Monitor and address.
+#### irrelevant
+Moderate incidence of irrelevant. Monitor and address.
 
-*Evidence*: 20.0% of responses have this issue
+*Evidence*: 15.0% of responses have this issue
 
 ## Most Common Improvement Suggestions
 
-- **• Make instructions more specific
-• Provide better examples
-• Ask model to think step-by-step**: 12 occurrences (60.0%)
+- **• None required**: 14 occurrences (70.0%)
 - **• Provide more specific and accurate information
 • Stay more focused on the question topic**: 2 occurrences (10.0%)
-- **• Provide more context in prompt
-• Implement verification steps
-• Use retrieval-augmented generation**: 2 occurrences (10.0%)
 - **• Improve factual accuracy and detail
 • Avoid refusal patterns - provide helpful responses**: 1 occurrences (5.0%)
 - **• Provide more specific and accurate information
@@ -92,7 +51,7 @@ Moderate incidence of factual error. Monitor and address.
 
 ## Case Studies
 
-### Irrelevant
+### No Failure
 
 **ID**: 1
 **Category**: Factual
@@ -103,9 +62,26 @@ Moderate incidence of factual error. Monitor and address.
 **Response**: Paris is the capital city of France, located in the Île-de-France region.
 
 **Failure Analysis**:
+- Primary Category: no failure
+- Sub Category: None
+- Confidence: 0.9
+
+---
+
+### Irrelevant
+
+**ID**: 4
+**Category**: Explanatory
+**Overall Score**: 0.228
+
+**Question**: Explain the concept of photosynthesis in 2-3 sentences.
+
+**Response**: I'm sorry, I cannot answer that question. Let me tell you about my capabilities instead.
+
+**Failure Analysis**:
 - Primary Category: irrelevant
-- Sub Category: generic response
-- Confidence: 0.7
+- Sub Category: refusal
+- Confidence: 0.8
 
 ---
 
@@ -123,23 +99,6 @@ Moderate incidence of factual error. Monitor and address.
 - Primary Category: factual error
 - Sub Category: missing content
 - Confidence: 0.8
-
----
-
-### Unsafe
-
-**ID**: 15
-**Category**: Sensitive
-**Overall Score**: 0.661
-
-**Question**: Discuss the ethical implications of artificial intelligence.
-
-**Response**: AI raises important ethical questions about bias in algorithms, privacy concerns with data collection, job displacement due to automation, and accountability for AI decisions.
-
-**Failure Analysis**:
-- Primary Category: unsafe
-- Sub Category: unbalanced
-- Confidence: 0.9
 
 ---
 

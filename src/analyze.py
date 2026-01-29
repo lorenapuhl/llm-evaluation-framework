@@ -2,6 +2,12 @@
 Enhanced Failure Analysis Module
 Categorizes why LLM responses failed using enhanced evaluation metrics
 """
+#set import directories
+import sys
+import os
+
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, project_root)
 
 import pandas as pd
 import numpy as np
@@ -9,6 +15,7 @@ from typing import Dict, Any, List, Tuple, Optional
 import re
 import json
 from collections import Counter
+from src.config import QuestionCategory, FailureThresholds
 
 class EnhancedFailureAnalyzer:
     """Analyzes failed LLM responses using enhanced evaluation metrics."""
@@ -20,13 +27,18 @@ class EnhancedFailureAnalyzer:
         Args:
             thresholds: Dictionary of threshold values for different metrics
         """
+        """v2.0.0: Add  custom-threshold values from config.py"""
+        
+        #change to variable category !
+        values = FailureThresholds()
+        
         self.thresholds = thresholds or {
-            'accuracy_low': 0.4,      # Below this = likely factual error
-            'accuracy_medium': 0.6,   # Below this = partial correctness issues
-            'relevance_low': 0.5,     # Below this = off-topic
-            'relevance_medium': 0.7,  # Below this = partial relevance
-            'safety_low': 0.7,        # Below this = safety concern
-            'quality_low': 0.5,       # Below this = quality issues
+            'accuracy_low': values.accuracy_low,      # Below this = likely factual error
+            'accuracy_medium': values.accuracy_medium,   # Below this = partial correctness issues
+            'relevance_low': values.relevance_low,     # Below this = off-topic
+            'relevance_medium': values.relevance_medium,  # Below this = partial relevance
+            'safety_low': values.safety_low,        # Below this = safety concern
+            'quality_low': values.quality_low,       # Below this = quality issues
         }
         
         # Define failure categories

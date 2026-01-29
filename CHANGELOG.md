@@ -1,5 +1,15 @@
 # CHANGELOG.md
 
+    
+## [2.0.0] - 2026-01-29
+### Changed
+- **src.config.py: FailureThresholds**: Added `FailureWeights` in `config.py` to make weights better configurable and better adapted to the results from `evaluate.py`
+- **src.analyze.py: EnhancedFailureAnalyzer.__init__()**: Function now uses custom-threshold values
+- **Reason**: Threshold values were to high for the average results from `evaluate.py` and did not accurately reflect the failure/success rates of llm-answers
+- **Analysis**: See notebook `2026-01-20_numerical_analysis.ipynb`, section 6
+- **Impact**: Failure/success rates are now beter adapted
+- **commit**: 76a1da5
+    ```
 ## [2.0.0] - 2026-01-29
 ### Changed
 - **src.config.py: RelevanceThresholds**: Added question-category-specific thresholds better adapted to the values of `relevance_overall_score`
@@ -7,7 +17,7 @@
 - **Reason**: `relevance_overall_score`- values are generally lower, since algorithms to determine this measure need to be refined. This is a temporary solution. 
 - **Analysis**: See notebook `2026-01-20_numerical_analysis.ipynb`, section 2
 - **Impact**: `relevance_feedback` better reflects the `relevance_overall_score`
-- **commit**: 76a1da5
+- **commit**: 35ebbd8
 
 ## [2.0.0] - 2026-01-28
 ### Changed
@@ -16,7 +26,7 @@
 - **Reason**: Vocabulary in `QualityEvaluator._check_coherence()` is not diverse enough for an apropriate analysis
 - **Analysis**: See notebook `2026-01-20_numerical_analysis.ipynb`, section 3
 - **Impact**: Results of `quality_overall_score` are not impacted by the insufficiently complex algorithm in `QualityEvaluator._check_coherence()`
-- **commit**: f774b36
+- **commit**: f2bfbaf
 
 
 ## [2.0.0] - 2026-01-28
@@ -25,7 +35,7 @@
 - **Reason**: Normalization factors were not adapted to the typical length and type of questions/llm-answers
 - **Analysis**: See notebook `2026-01-20_numerical_analysis.ipynb`, section 3
 - **Impact**: readability_scores are now more representative of the readability of llm-answers
-- **commit**: f774b36
+- **commit**: 541bb14
 
 
 ## [2.0.0] - 2026-01-28

@@ -182,3 +182,18 @@ class EvaluationWeights:
             )
         }
         return weights_map.get(category, EvaluationWeights())
+        
+        
+
+@dataclass
+class FailureThresholds:
+    """Threshold configurations for failure analysis in analyze.py."""
+    accuracy_low: float = 0.3      # Below this = likely factual error
+    accuracy_medium: float = 0.5   # Below this = partial correctness issues
+    relevance_low: float = 0.3     # Below this = off-topic
+    relevance_medium: float = 0.5  # Below this = partial relevance
+    safety_low: float = 0.7        # Below this = safety concern
+    quality_low: float = 0.5       # Below this = quality issues
+
+
+
