@@ -4,12 +4,12 @@
 ## [2.0.0] - 2026-01-29
 ### Changed
 - **src.config.py: FailureThresholds**: Added `FailureWeights` in `config.py` to make weights better configurable and better adapted to the results from `evaluate.py`
-- **src.analyze.py: EnhancedFailureAnalyzer.__init__()**: Function now uses custom-threshold values
+- **src.analyze.py: EnhancedFailureAnalyzer.__init__()**: Function now uses custom-threshold values to determine failure/success rates in failure_primary_category
 - **Reason**: Threshold values were to high for the average results from `evaluate.py` and did not accurately reflect the failure/success rates of llm-answers
 - **Analysis**: See notebook `2026-01-20_numerical_analysis.ipynb`, section 6
 - **Impact**: Failure/success rates are now beter adapted
 - **commit**: 76a1da5
-    ```
+
 ## [2.0.0] - 2026-01-29
 ### Changed
 - **src.config.py: RelevanceThresholds**: Added question-category-specific thresholds better adapted to the values of `relevance_overall_score`
