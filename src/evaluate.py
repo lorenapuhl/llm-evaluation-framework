@@ -309,13 +309,13 @@ class AccuracyEvaluator:
     def _generate_accuracy_feedback(self, reference: str, response: str, score: float, category : str) -> str:
         """Generate human-readable accuracy feedback.
         
-        v2.0.0: Add caution for Creative/Sensitive (n-gram metrics limited) and custom-threshold values from config.py"""
+        v2.0.0: Add remark for Creative/Sensitive (n-gram metrics limited) and custom-threshold values from config.py"""
         
         values = AccuracyThresholds.threshold(category) #yields AccuracyThreshold-object AccuracyThresholds(high= , good= , moderate= , low= ) with according values
         
         #create caution-string
         if category in [QuestionCategory.CREATIVE.value, QuestionCategory.SENSITIVE.value]:
-            caution = f" (Caution: Accuracy measure not suitable for {category.lower()} questions)"
+            caution = f" (Remark: Accuracy-threshold lower for {category.lower()} questions)"
         else: caution = ""
         
         #copare scores with threshold values
