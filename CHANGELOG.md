@@ -1,5 +1,14 @@
 # CHANGELOG.md
 
+## [2.0.0] - 2026-01-29
+### Changed
+- **src.config.py: RelevanceThresholds**: Added question-category-specific thresholds better adapted to the values of `relevance_overall_score`
+- **src.evaluate.py: AccuracyEvaluator._generate_relevance_feedback()**: Function now uses custom-threshold values and shows caution message for creative and sensitive questions
+- **Reason**: `relevance_overall_score`- values are generally lower, since algorithms to determine this measure need to be refined. This is a temporary solution. 
+- **Analysis**: See notebook `2026-01-20_numerical_analysis.ipynb`, section 2
+- **Impact**: `relevance_feedback` better reflects the `relevance_overall_score`
+- **commit**: 76a1da5
+
 ## [2.0.0] - 2026-01-28
 ### Changed
 - **src.config.py: QualityWeights**: Added custom-weights when calulating the `quality_overall_score`

@@ -1,24 +1,24 @@
 {
   "benchmark_info": {
-    "run_id": "20260128_161443",
-    "start_time": "2026-01-28T16:14:26.417960",
-    "end_time": "2026-01-28T16:14:43.170325",
-    "total_execution_time": 16.752365,
+    "run_id": "20260129_104724",
+    "start_time": "2026-01-29T10:47:07.703723",
+    "end_time": "2026-01-29T10:47:24.690644",
+    "total_execution_time": 16.986921,
     "framework_version": "1.0",
     "python_version": "3.11.14 (main, Oct 10 2025, 00:00:00) [GCC 15.2.1 20250808 (Red Hat 15.2.1-1)]"
   },
   "results": {
     "evaluation_report": "/home/lorena/llm-evaluation-framework/outputs/evaluation_report.md",
     "evaluation": {
-      "execution_time": 7.22402811050415,
+      "execution_time": 7.867629289627075,
       "total_pairs": 20,
-      "avg_score": 0.6553850000000001,
+      "avg_score": 0.64309,
       "pass_rate": 0.75,
       "output_file": "/home/lorena/llm-evaluation-framework/outputs/enhanced_evaluation_results.tsv"
     },
     "failure_analysis_report": "/home/lorena/llm-evaluation-framework/outputs/failure_analysis_report.md",
     "failure_analysis": {
-      "execution_time": 0.02768731117248535,
+      "execution_time": 0.02944660186767578,
       "total_analyzed": 20,
       "failed_responses": 20,
       "success_rate": 0.0,
@@ -27,7 +27,7 @@
       "report_file": "/home/lorena/llm-evaluation-framework/outputs/enhanced_failure_analysis_report.json"
     },
     "visualizations": {
-      "execution_time": 9.459540367126465,
+      "execution_time": 9.055736780166626,
       "generated_files": {
         "dashboard": "/home/lorena/llm-evaluation-framework/outputs/llm_evaluation_dashboard.html",
         "score_distribution": "/home/lorena/llm-evaluation-framework/outputs/score_distribution.png",

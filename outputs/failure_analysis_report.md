@@ -2,11 +2,11 @@
 
 ## Executive Summary
 
-**Analysis Date**: 2026-01-28 16:14:33
+**Analysis Date**: 2026-01-29 10:47:15
 **Total Responses Analyzed**: 20
 **Failed Responses**: 20
 **Success Rate**: 0.0%
-**Average Overall Score**: 0.655
+**Average Overall Score**: 0.643
 
 ## Detailed Failure Breakdown
 
@@ -20,7 +20,7 @@
 | Category | Count | Avg Score | Failure Rate | Top Failure |
 |----------|-------|-----------|--------------|-------------|
 | Factual | 9 | 0.647 | 100.0% | irrelevant |
-| Explanatory | 4 | 0.616 | 100.0% | irrelevant |
+| Explanatory | 4 | 0.555 | 100.0% | irrelevant |
 | Creative | 3 | 0.642 | 100.0% | irrelevant |
 | Instruction | 2 | 0.737 | 100.0% | factual error |
 | Sensitive | 2 | 0.710 | 100.0% | factual error |
@@ -81,7 +81,8 @@ Moderate incidence of factual error. Monitor and address.
 - **• Provide more context in prompt
 • Implement verification steps
 • Use retrieval-augmented generation**: 2 occurrences (10.0%)
-- **•  Improve factual accuracy and detail**: 1 occurrences (5.0%)
+- **• Improve factual accuracy and detail
+• Avoid refusal patterns - provide helpful responses**: 1 occurrences (5.0%)
 - **• Provide more specific and accurate information
 • Avoid biased topic, such as climate change**: 1 occurrences (5.0%)
 - **•  Provide more specific and accurate information**: 1 occurrences (5.0%)

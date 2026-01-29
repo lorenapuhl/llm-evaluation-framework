@@ -74,6 +74,32 @@ class AccuracyWeights:
                 ),
         }
         return values.get(category, AccuracyWeights())
+        
+@dataclass
+#avoiding writing __init__():
+class RelevanceThresholds:
+    """Threshold-configurations for AccuracyEvaluator (evaluate.py)"""
+    high: float = 0.6 # High relevance threshold
+    good: float = 0.5 # Good relevance threshold
+    moderate: float = 0.3 # Moderate relevance threshold
+    low: float = 0.2 # Low relevance threshold
+    
+    @staticmethod
+    #independent of self. objects or cls. objects
+    def threshold(category: QuestionCategory) -> 'RelevanceThresholds':
+        """Get category-specific thresholds for _generate_relevance_feedback():"""
+        values = {
+            QuestionCategory.FACTUAL.value: RelevanceThresholds(),
+            
+            QuestionCategory.EXPLANATORY.value: RelevanceThresholds(),
+            
+            QuestionCategory.INSTRUCTIONAL.value: RelevanceThresholds(),
+            
+            QuestionCategory.CREATIVE.value: RelevanceThresholds(),
+            
+            QuestionCategory.SENSITIVE.value: RelevanceThresholds()
+        }
+        return values.get(category, AccuracyThresholds())
  
 @dataclass
 class RelevanceWeights:
@@ -84,7 +110,7 @@ class RelevanceWeights:
     keyword_overlap: float = 0.2            # Exact keyword match
     intent_match: float = 0.2               # Intent understanding
     relevance_adjustment: float = 1         # Category bonus
-    refusal_score: float = -0.5             # Refusal penalty
+    refusal_score: float = 0.5             # Refusal penalty
     
     @staticmethod
     def weights(category: QuestionCategory) -> 'AccuracyWeights':

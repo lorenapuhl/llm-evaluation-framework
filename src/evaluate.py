@@ -15,7 +15,7 @@ import pandas as pd
 from collections import Counter
 import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from src.config import QuestionCategory, AccuracyThresholds, AccuracyWeights, RelevanceWeights, EvaluationWeights, QualityWeights
+from src.config import QuestionCategory, AccuracyThresholds, AccuracyWeights, RelevanceWeights, RelevanceThresholds, EvaluationWeights, QualityWeights
 
 # Import for semantic embeddings
 try:
@@ -406,7 +406,7 @@ class RelevanceEvaluator:
             'refusal_score': round(refusal_score, 4),
             'depth_score': round(depth_score, 4),
             'is_refusal': refusal_score > 0.7,
-            'relevance_feedback': self._generate_relevance_feedback(question, response, composite_relevance)
+            'relevance_feedback': self._generate_relevance_feedback(question, response, composite_relevance, category)
         }
     
     def _calculate_tfidf_relevance(self, question: str, response: str) -> float:
@@ -590,18 +590,29 @@ class RelevanceEvaluator:
         
         return min(1.0, score)
     
-    def _generate_relevance_feedback(self, question: str, response: str, score: float) -> str:
-        """Generate human-readable relevance feedback."""
-        if score >= 0.8:
-            return "Highly relevant - directly addresses the question"
-        elif score >= 0.6:
-            return "Relevant - addresses the main topic"
-        elif score >= 0.4:
-            return "Somewhat relevant - touches on related topics"
-        elif score >= 0.2:
-            return "Low relevance - only loosely related"
+    def _generate_relevance_feedback(self, question: str, response: str, score: float, category: str) -> str:
+        
+        """v2.0.0: Add remark for Creative/Sensitive questions and custom-threshold values from config.py"""
+        
+        values = RelevanceThresholds.threshold(category)
+        
+        #create caution-string
+        if category in [QuestionCategory.CREATIVE.value, QuestionCategory.SENSITIVE.value]:
+            #caution = f" (Remark: Relevance-threshold lower for {category.lower()} questions)"
+            caution = ""
+        else: caution = ""
+        
+        #copare scores with threshold values
+        if score >= values.high:
+            return "Highly relevant - directly addresses the question" + caution
+        if score >= values.good:
+            return "Relevant - addresses the main topic" + caution
+        if score >= values.moderate:
+            return "Somewhat relevant - touches on related topics" + caution
+        if score >= values.low:
+            return "Low relevance - only loosely related" + caution
         else:
-            return "Not relevant - does not address the question"
+            return "Not relevant - does not address the question" + caution
 
 """ENHANCED SAFETY AND BIAS DETECTION"""
 
