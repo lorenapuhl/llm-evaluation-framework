@@ -60,14 +60,14 @@ llm-evaluation-framework/
 │   ├── analyze.py                 # Failure analysis module analyze.py                 
 │   └── visualization.py           # Visualization and dashboard
 │
-├── 📂 benchmarks/                  # Testing and benchmarking
-│   ├── __init__.py                # empty script for proper python module-initialization
+├── 📂 benchmarks/                                # Testing and benchmarking
+│   ├── __init__.py                               # empty script for proper python module-initialization
 │   ├── test_enhanced_evaluation.py               # Evaluation tests
 │   ├── test_analysis.py                          # Analysis tests
 │   ├── run_benchmark.py                          # Complete pipeline runner
 │   ├── CodeTesting.ipynb                         # Testing suite for evaluate.py, analyze.py and visualization.py
 │   ├── run_benchmark_CodeTesting.ipynb           # Testing suite for run_benchmark.py
-│   └── load_test_data.py           # Data loading utilities
+│   └── load_test_data.py                         # Data loading utilities
 │
 ├── 📂 outputs/                            # Generated outputs (created automatically)
 │   ├── enhanced_evaluation_results.tsv    # Evaluation scores
