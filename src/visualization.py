@@ -284,6 +284,8 @@ class LLMVisualizer:
         
         # 7. Top Failure Examples (as table)
         if 'primary_failure_mode' in failure_data.columns and 'question' in failure_data.columns:
+            failures = failure_data[failure_data['primary_failure_mode']!= 'pass']
+            top_failures = failures.nlargest(5, 'failure_confidence')[['question', 'primary_failure_mode', 'failure_confidence']]
             top_failures = failure_data.nlargest(5, 'failure_confidence')[['question', 'primary_failure_mode', 'failure_confidence']]
             
             fig.add_trace(
@@ -608,7 +610,7 @@ class LLMVisualizer:
             # Prepare data for heatmap
             failure_scores = {}
             for failure_mode in failure_counts.index:
-                if failure_mode != 'none':
+                if failure_mode != 'pass':
                     mode_data = failure_data[failure_data['primary_failure_mode'] == failure_mode]
                     failure_scores[failure_mode] = {
                         'Count': len(mode_data),
@@ -912,7 +914,7 @@ class LLMVisualizer:
             failure_corr = {}
             for metric in metrics:
                 for failure_type in failure_scores.columns:
-                    if failure_type != 'none':
+                    if failure_type != 'pass':
                         corr = eval_data[metric].corr(failure_scores[failure_type])
                         failure_corr[f'{metric}_{failure_type}'] = corr
             
@@ -1117,7 +1119,7 @@ class LLMVisualizer:
         # Failure statistics
         if 'primary_failure_mode' in failure_data.columns:
             failure_stats = failure_data['primary_failure_mode'].value_counts().to_dict()
-            failure_summary = {k: v for k, v in failure_stats.items() if k != 'none'}
+            failure_summary = {k: v for k, v in failure_stats.items() if k != 'pass'}
             summary_stats['Total Failures'] = sum(failure_summary.values())
             summary_stats['Failure Rate'] = f"{(sum(failure_summary.values()) / len(failure_data)) * 100:.1f}%"
         
@@ -1184,7 +1186,7 @@ class LLMVisualizer:
         # Add failure analysis section
         if 'primary_failure_mode' in failure_data.columns:
             failure_counts = failure_data['primary_failure_mode'].value_counts()
-            total_failures = failure_counts.sum() - failure_counts.get('none', 0)
+            total_failures = failure_counts.sum() - failure_counts.get('pass', 0)
             
             html_content += f"""
                 <div class="section">
@@ -1202,17 +1204,17 @@ class LLMVisualizer:
             
             # Define failure descriptions
             failure_descriptions = {
-                'factual_error': 'Incorrect or inaccurate information provided',
+                'factual error': 'Incorrect or inaccurate information provided',
                 'irrelevant': 'Response does not address the question',
                 'unsafe': 'Contains bias, harmful content, or misinformation',
                 'poor_quality': 'Poorly written, unclear, or unhelpful response',
-                'refusal': 'LLM refused to answer the question',
-                'partial_accuracy': 'Partially correct but incomplete',
-                'partial_relevance': 'Partially relevant but off-topic elements'
+                'refusal to answer': 'LLM refused to answer the question',
+                'partial accuracy': 'Partially correct but incomplete',
+                'partial relevance': 'Partially relevant but off-topic elements'
             }
             
             for failure_type, count in failure_counts.items():
-                if failure_type != 'none':
+                if failure_type != 'pass':
                     percentage = (count / total_failures) * 100
                     description = failure_descriptions.get(failure_type, 'Unknown failure type')
                     color = self.failure_colors.get(failure_type, '#888888')
