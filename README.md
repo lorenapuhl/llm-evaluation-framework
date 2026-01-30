@@ -66,7 +66,6 @@ llm-evaluation-framework/
 │   ├── test_analysis.py                          # Analysis tests
 │   ├── run_benchmark.py                          # Complete pipeline runner
 │   ├── CodeTesting.ipynb                         # Testing suite for evaluate.py, analyze.py and visualization.py
-│   ├── run_benchmark_CodeTesting.ipynb           # Testing suite for run_benchmark.py
 │   └── load_test_data.py                         # Data loading utilities
 │
 ├── 📂 outputs/                            # Generated outputs (created automatically)
